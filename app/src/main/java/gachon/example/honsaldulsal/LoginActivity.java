@@ -9,15 +9,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import com.google.android.gms.common.SignInButton;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
@@ -37,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         editTextEmail = (EditText) findViewById(R.id.edittext_email);
         editTextPassword = (EditText) findViewById(R.id.edittext_password);
         buttonSignUp = (Button) findViewById(R.id.btn_signup);
+
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
