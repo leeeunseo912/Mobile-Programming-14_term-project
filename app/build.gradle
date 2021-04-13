@@ -42,6 +42,10 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.google.firebase:firebase-auth:20.0.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    implementation 'com.google.firebase:firebase-database:19.7.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
 
     testImplementation "junit:junit:${junitVersion}"
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
