@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,6 +34,34 @@ public class Frag_home extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v=inflater.inflate(R.layout.activity_frag_home,container,false);
+
+//        Button button = (Button)v.findViewById(R.id.btn_enlarge);
+//        button.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v){
+//                MainActivity activity = (MainActivity) getActivity();
+//                activity.onFragmentChanged(0);
+//            }
+//        });
+//        Frag_item.java
+//        public class Frag_item extends Fragment{
+//            @Nullable
+//            @Override
+//            public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
+//                ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.activity_frag_item, container, false);
+//
+//                Button button = (Button)rootView.findViewById(R.id.btn_exit);
+//                button.setOnClickListener(new View.OnClickListener(){
+//                    @Override
+//                    public void onClick(View v){
+//                        MainActivity activity = (MainActivity)getActivity();
+//                        activity.onFragmentChanged(1);
+//                    }
+//                });
+//
+//                return rootView;
+//            }
+//        }
 
         recyclerView = (RecyclerView)v.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);

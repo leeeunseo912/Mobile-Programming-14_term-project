@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:layout_marginLeft="15dp"
     android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/item"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="물품이름 들어갈 곳"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:gravity="center"/>
+<!--    버튼눌러서 item정보를 새로운 fragment에 표시-->
+<!--    <Button-->
+<!--        android:id="@+id/btn_enlarge"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content">-->
 
-    <TextView
-        android:id="@+id/location"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="위치들어갈곳"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        />
+        <TextView
+            android:id="@+id/item"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="물품이름 들어갈 곳" />
 
-    <TextView
-        android:id="@+id/peopleNum"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_margin="5dp"
-        android:gravity="center"
-        android:layout_weight="1"
-        android:text="사람들어갈곳"
-        />
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="위치들어갈곳" />
+
+        <TextView
+            android:id="@+id/peopleNum"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="사람들어갈곳" />
+<!--    </Button>-->
 </LinearLayout>

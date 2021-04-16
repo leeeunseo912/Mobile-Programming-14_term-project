@@ -4,12 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
+import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.CustomViewHolder> {
@@ -53,5 +55,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.CustomVi
             this.location=itemView.findViewById(R.id.location);
             this.peopleNum=itemView.findViewById(R.id.peopleNum);
         }
+
+
     }
 }
