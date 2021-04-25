@@ -1,20 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Frag_info">
 
 
-    <TextView
-        android:id="@+id/textView_info"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="information"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView_info"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="My information"
+            android:textSize="30sp"
+            android:textStyle="bold"
+             />
+
+        <ImageView
+            android:id="@+id/user"
+            android:layout_width="43dp"
+            android:layout_height="47dp"
+            android:layout_marginLeft="159dp"
+            android:layout_toRightOf="@id/textView_info"
+            android:src="@drawable/setting_icon" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="182dp">
+
+        <ImageView
+            android:id="@+id/user_image"
+            android:layout_width="186dp"
+            android:layout_height="wrap_content"
+            android:padding="50dp"
+            android:scaleType="fitStart"
+            app:srcCompat="@drawable/default_user_image" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/user_image"
+            android:layout_toRightOf="@id/user_image"
+            android:text="사용자이름"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name"
+            android:layout_alignLeft="@id/name"
+            android:layout_marginTop="7dp"
+            android:text="id@gmail.com"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+        <Button
+            android:id="@+id/my_info"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10px"
+            android:text="My information " />
+
+        <Button
+            android:id="@+id/my_point"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10px"
+            android:text="My point" />
+
+
+        <Button
+            android:id="@+id/trans_list"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10px"
+            android:text="My transaction List" />
+
 </LinearLayout>
