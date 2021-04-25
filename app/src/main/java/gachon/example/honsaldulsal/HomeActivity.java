@@ -20,6 +20,11 @@ public class HomeActivity extends AppCompatActivity {
     private Frag_home home;
     private Frag_info info;
     private Frag_posting posting;
+    private My_point myPoint;
+    private My_information myInformation;
+    private My_transaction myTransaction;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,10 +71,13 @@ public class HomeActivity extends AppCompatActivity {
         home = new Frag_home();
         info = new Frag_info();
         posting = new Frag_posting();
+        myPoint = new My_point();
+        myInformation = new My_information();
+        myTransaction = new My_transaction();
         setFrag(0);
     }
 
-    private void setFrag(int n){
+    public void setFrag(int n){
         fm = getSupportFragmentManager();
         ft = fm.beginTransaction();
         switch (n){
@@ -85,6 +93,19 @@ public class HomeActivity extends AppCompatActivity {
                 ft.replace(R.id.frame_container, info);
                 ft.commit();
                 break;
+            case 3:
+                ft.replace(R.id.frame_container,myPoint);
+                ft.commit();
+                break;
+            case 4:
+                ft.replace(R.id.frame_container,myInformation);
+                ft.commit();
+                break;
+            case 5:
+                ft.replace(R.id.frame_container,myTransaction);
+                ft.commit();
+                break;
         }
     }
+
 }
