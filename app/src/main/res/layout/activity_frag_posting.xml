@@ -87,7 +87,8 @@
         <TableRow>
             <TextView android:text="기타사항"
                 android:textStyle="bold"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:gravity="center"/>
 
 
             <EditText android:id="@+id/postEtc"
@@ -95,5 +96,10 @@
                 android:hint="Etc"/>
         </TableRow>
     </TableLayout>
-
+    <Button
+        android:id="@+id/postBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Posting"
+        android:layout_gravity="center"/>
 </LinearLayout>
