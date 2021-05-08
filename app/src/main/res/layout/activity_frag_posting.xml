@@ -4,17 +4,102 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="287dp"
+        android:layout_height="231dp"
+        android:layout_gravity="center"
+        android:src="@drawable/item" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView android:text="Item Name"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/postItem"
+                android:gravity="left"
+                android:hint="itemName" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView android:text="Quantity of Item"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/postQuantity"
+                android:gravity="left"
+                android:hint="itemQuantity" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView android:text="Item Price"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/postPrice"
+                android:gravity="left"
+                android:hint="itemPrice" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView android:text="Loactaion"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/postLocation"
+                android:gravity="left"
+                android:hint="Loacation" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView android:text="Number of People"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/postPeople"
+                android:gravity="left"
+                android:hint="NumberOfPeople" />
+        </TableRow>
+        <TableRow>
+            <TextView android:text="기타사항"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"/>
 
 
-    <TextView
-        android:id="@+id/textView_posting"
+            <EditText android:id="@+id/postEtc"
+                android:gravity="left"
+                android:hint="Etc"/>
+        </TableRow>
+    </TableLayout>
+    <Button
+        android:id="@+id/postBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="posting"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Posting"
+        android:layout_gravity="center"/>
 </LinearLayout>
