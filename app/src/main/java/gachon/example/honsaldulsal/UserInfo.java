@@ -15,7 +15,7 @@ public class UserInfo{
     public String location;
     public float point;
     public String transaction;
-
+ 
     public UserInfo() {
 
     }
