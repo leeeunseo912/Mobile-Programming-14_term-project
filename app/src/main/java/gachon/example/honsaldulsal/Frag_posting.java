@@ -39,7 +39,7 @@ public class Frag_posting extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v=inflater.inflate(R.layout.activity_frag_posting,container,false);
 
-//        mDatabase = FirebaseDatabase.getInstance().getReference("info");
+//        mDatabase = FirebaseDatabase.getInstance().getReference("Product");
 //
 //
 //
