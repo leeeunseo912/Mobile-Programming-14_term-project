@@ -53,7 +53,6 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
     public static String user = "UserInfo";
-    public static String userMail = "";
 
     private void createUser(String email, String password, String name) {
         // 파이어베이스에 유저 데이터 넣어놓기
@@ -67,7 +66,7 @@ public class SignUpActivity extends AppCompatActivity {
                             // DB 테이블 연결
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                             DatabaseReference myRef = database.getReference(user);
-                            String birth = "", location = "", transaction = "";
+                            String birth = "", location = "", transaction = "", chat="";
                             float point = 0;
 
                             HashMap<String, Object> userValue = new HashMap<>();
@@ -77,6 +76,7 @@ public class SignUpActivity extends AppCompatActivity {
                             userValue.put("location", location);
                             userValue.put("point", point);
                             userValue.put("transaction", transaction);
+                            userValue.put("chat", chat);
 
                             myRef.child(name).updateChildren(userValue);
 

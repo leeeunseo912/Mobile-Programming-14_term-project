@@ -20,6 +20,7 @@ public class HomeActivity extends AppCompatActivity {
     private Frag_home home;
     private Frag_info info;
     private Frag_posting posting;
+    private Frag_chat chat;
     private My_point myPoint;
     private My_information myInformation;
     private My_transaction myTransaction;
@@ -61,8 +62,11 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.posting:
                         setFrag(1);
                         break;
-                    case R.id.info:
+                    case R.id.chat:
                         setFrag(2);
+                        break;
+                    case R.id.info:
+                        setFrag(3);
                         break;
                 }
                 return true;
@@ -71,6 +75,7 @@ public class HomeActivity extends AppCompatActivity {
         home = new Frag_home();
         info = new Frag_info();
         posting = new Frag_posting();
+        chat = new Frag_chat();
         myPoint = new My_point();
         myInformation = new My_information();
         myTransaction = new My_transaction();
@@ -90,18 +95,22 @@ public class HomeActivity extends AppCompatActivity {
                 ft.commit();
                 break;
             case 2:
-                ft.replace(R.id.frame_container, info);
+                ft.replace(R.id.frame_container, chat);
                 ft.commit();
                 break;
             case 3:
-                ft.replace(R.id.frame_container,myPoint);
+                ft.replace(R.id.frame_container, info);
                 ft.commit();
                 break;
             case 4:
-                ft.replace(R.id.frame_container,myInformation);
+                ft.replace(R.id.frame_container,myPoint);
                 ft.commit();
                 break;
             case 5:
+                ft.replace(R.id.frame_container,myInformation);
+                ft.commit();
+                break;
+            case 6:
                 ft.replace(R.id.frame_container,myTransaction);
                 ft.commit();
                 break;

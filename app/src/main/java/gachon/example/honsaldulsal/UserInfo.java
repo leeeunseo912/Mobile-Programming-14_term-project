@@ -10,18 +10,20 @@ public class UserInfo{
     public String location;
     public float point;
     public String transaction;
+    public String chat;
 
     public UserInfo() {
 
     }
 
-    public UserInfo(String email, String name, String birth, String location ,float point, String transaction) {
+    public UserInfo(String email, String name, String birth, String location ,float point, String transaction, String chat) {
         this.email = email;
         this.name = name;
         this.birth = birth;
         this.location = location;
         this.point = point;
         this.transaction = transaction;
+        this.chat = chat;
     }
 
     public String getEmail() {
@@ -64,6 +66,10 @@ public class UserInfo{
         this.transaction = transaction;
     }
 
+    public String getChat() {return chat;}
+
+    public void setChat(String chat) {this.chat = chat;}
+
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("email", email);
@@ -72,6 +78,7 @@ public class UserInfo{
         result.put("location", location);
         result.put("point", point);
         result.put("transaction", transaction);
+        result.put("chat", chat);
 
         return result;
     }
