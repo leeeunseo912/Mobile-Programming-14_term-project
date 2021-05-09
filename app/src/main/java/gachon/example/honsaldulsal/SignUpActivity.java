@@ -1,7 +1,7 @@
 package gachon.example.honsaldulsal;
 
-
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,11 +28,6 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText editTextPassword;
     private EditText editTextName;
     private Button buttonJoin;
-
-    DatabaseReference mDBReference = null;
-    HashMap<String, Object> childUpdates = null;
-    Map<String, Object> userValue = null;
-    UserInfo userInfo = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +52,8 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
     }
+    public static String user = "UserInfo";
+    public static String userMail = "";
 
     private void createUser(String email, String password, String name) {
         // 파이어베이스에 유저 데이터 넣어놓기
@@ -66,17 +65,20 @@ public class SignUpActivity extends AppCompatActivity {
                             // 회원가입 성공시
                             // 파이어베이스 데이터베이스 연동
                             // DB 테이블 연결
-                            mDBReference = FirebaseDatabase.getInstance().getReference();
-                            childUpdates = new HashMap<>();
-
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            DatabaseReference myRef = database.getReference(user);
                             String birth = "", location = "", transaction = "";
                             float point = 0;
 
-                            userInfo = new UserInfo(email, password, name, birth, location, point, transaction);
-                            userValue = userInfo.toMap();
+                            HashMap<String, Object> userValue = new HashMap<>();
+                            userValue.put("email", email);
+                            userValue.put("name", name);
+                            userValue.put("birth", birth);
+                            userValue.put("location", location);
+                            userValue.put("point", point);
+                            userValue.put("transaction", transaction);
 
-                            childUpdates.put("/UserInfo/" + email, userValue);
-                            mDBReference.updateChildren(childUpdates);
+                            myRef.child(name).updateChildren(userValue);
 
                             Toast.makeText(SignUpActivity.this, "회원가입 성공", Toast.LENGTH_SHORT).show();
                             finish();
@@ -87,6 +89,5 @@ public class SignUpActivity extends AppCompatActivity {
                         }
                     }
                 });
-
     }
 }
