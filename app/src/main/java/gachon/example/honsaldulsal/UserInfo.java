@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserInfo{
-    public String email;
-    public String name;
-    public String birth;
-    public String location;
-    public float point;
-    public String transaction;
-    public String chat;
+    private String email;
+    private String name;
+    private String birth;
+    private String location;
+    private float point;
+    private String transaction;
+    private String chat;
 
     public UserInfo() {
 

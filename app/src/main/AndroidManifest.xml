@@ -22,6 +22,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".UserInfoAdapter"></activity>
         <activity
             android:name=".Frag_info"
             tools:ignore="Instantiatable" />
@@ -40,6 +41,7 @@
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
+
         <activity
             android:name=".Frag_home"
             tools:ignore="Instantiatable" />

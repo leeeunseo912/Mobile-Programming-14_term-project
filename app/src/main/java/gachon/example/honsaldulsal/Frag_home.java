@@ -69,7 +69,6 @@ public class Frag_home extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         arrayList = new ArrayList<>();
 
-
         database = FirebaseDatabase.getInstance(); // 파이어베이스 데이터베이스 연동
         databaseReference = database.getReference("Product"); // DB 테이블 연결
         databaseReference.addValueEventListener(new ValueEventListener() {
