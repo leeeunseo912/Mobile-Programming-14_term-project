@@ -27,6 +27,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText editTextEmail;
     private EditText editTextPassword;
     private EditText editTextName;
+    private EditText editTextBirth;
     private Button buttonJoin;
 
     @Override
@@ -38,13 +39,14 @@ public class SignUpActivity extends AppCompatActivity {
         editTextEmail = (EditText) findViewById(R.id.editText_email);
         editTextPassword = (EditText) findViewById(R.id.editText_passWord);
         editTextName = (EditText) findViewById(R.id.editText_name);
+        editTextBirth = (EditText) findViewById(R.id.editText_birth);
         buttonJoin = (Button) findViewById(R.id.btn_join);
         buttonJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!editTextEmail.getText().toString().equals("") && !editTextPassword.getText().toString().equals("")) {
                     // 이메일과 비밀번호가 공백이 아닌 경우
-                    createUser(editTextEmail.getText().toString(), editTextPassword.getText().toString(), editTextName.getText().toString());
+                    createUser(editTextEmail.getText().toString(), editTextPassword.getText().toString(), editTextName.getText().toString(), editTextBirth.getText().toString());
                 } else {
                     // 이메일과 비밀번호가 공백인 경우
                     Toast.makeText(SignUpActivity.this, "계정과 비밀번호를 입력하세요.", Toast.LENGTH_LONG).show();
@@ -54,7 +56,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
     public static String user = "UserInfo";
 
-    private void createUser(String email, String password, String name) {
+    private void createUser(String email, String password, String name, String birth) {
         // 파이어베이스에 유저 데이터 넣어놓기
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -66,7 +68,8 @@ public class SignUpActivity extends AppCompatActivity {
                             // DB 테이블 연결
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                             DatabaseReference myRef = database.getReference(user);
-                            String birth = "", location = "", transaction = "", chat="";
+                            String location = "", transaction = "", chat="";
+                            String Email = email.substring(0, email.indexOf("@"));
                             float point = 0;
 
                             HashMap<String, Object> userValue = new HashMap<>();
@@ -78,8 +81,8 @@ public class SignUpActivity extends AppCompatActivity {
                             userValue.put("transaction", transaction);
                             userValue.put("chat", chat);
 
-                            myRef.child(name).updateChildren(userValue);
-
+                            // 수정이 필요할 듯
+                            myRef.child(Email).updateChildren(userValue);
                             Toast.makeText(SignUpActivity.this, "회원가입 성공", Toast.LENGTH_SHORT).show();
                             finish();
 

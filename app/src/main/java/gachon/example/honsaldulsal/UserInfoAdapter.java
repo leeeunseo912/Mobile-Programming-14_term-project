@@ -35,6 +35,23 @@ public class UserInfoAdapter extends RecyclerView.Adapter<UserInfoAdapter.UserIn
 
     @Override
     public void onBindViewHolder(@NonNull UserInfoAdapter.UserInfoHolder holder, int position) {
+        /*
+        String temp = arrayList.get(position).getChat();
+        int idx = temp.indexOf("/");
+
+        String tranTemp = temp.substring(0, idx);
+        String chat_numTemp = temp.substring(idx+1);
+
+        idx = chat_numTemp.indexOf("chat_num/");
+        chat_numTemp = chat_numTemp.substring(idx+1, idx+2);
+
+        String host_nameTemp = chat_numTemp.substring(idx+2);
+        idx = host_nameTemp.indexOf("host_name/");
+        host_nameTemp = host_nameTemp.substring(idx+1);
+        idx = host_nameTemp.indexOf("/");
+        host_nameTemp = host_nameTemp.substring(0, idx);
+         */
+
         holder.transaction.setText(arrayList.get(position).getTransaction());
         holder.host_name.setText(arrayList.get(position).getChat());
         holder.chat_num.setText(arrayList.get(position).getChat());

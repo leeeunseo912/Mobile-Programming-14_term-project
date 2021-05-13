@@ -62,6 +62,15 @@
         android:hint="Name"
         android:inputType="textPersonName"
         />
+    <EditText
+        android:id="@+id/editText_birth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:hint="Birthday"
+        android:inputType="text|date"
+        />
     ​
     <Button
         android:id="@+id/btn_join"

@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -38,6 +40,10 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -73,6 +79,7 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (savedInstanceState != null) {
             mCurrentLocatiion = savedInstanceState.getParcelable(KEY_LOCATION);
             CameraPosition mCameraPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION);
@@ -86,7 +93,7 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
 
         // title set
         title = (TextView) this.findViewById(R.id.navibar_text); // title
-        title.setText("실시간 위치 표시");
+        title.setText("실시간 위치설정");
 
         locationRequest = new LocationRequest()
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY) // 정확도를 최우선적으로 고려
@@ -257,6 +264,7 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
                 //현재 위치에 마커 생성하고 이동
                 setCurrentLocation(location, markerTitle, markerSnippet);
                 mCurrentLocatiion = location;
+
             }
         }
 
@@ -284,6 +292,14 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
 
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLng(currentLatLng);
         mMap.moveCamera(cameraUpdate);
+
+        // 유저 위치 저장하기
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user != null ? user.getEmail() : null;
+        email = email.substring(0, email.indexOf("@"));
+
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("UserInfo");
+        mDatabase.child(email).child("location").setValue(markerSnippet);
     }
 
     private void getDeviceLocation() {
