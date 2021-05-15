@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,10 +7,15 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="287dp"
-        android:layout_height="231dp"
+        android:id="@+id/postImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/item" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -22,10 +26,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView android:text="Item Name"
-                android:textStyle="bold"
+            <TextView
+                android:gravity="center"
+                android:text="Item Name"
                 android:textColor="@color/black"
-                android:gravity="center"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/postItem"
@@ -35,10 +40,11 @@
 
         <TableRow>
 
-            <TextView android:text="Quantity of Item"
-                android:textStyle="bold"
+            <TextView
+                android:gravity="center"
+                android:text="Quantity of Item"
                 android:textColor="@color/black"
-                android:gravity="center"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/postQuantity"
@@ -48,10 +54,11 @@
 
         <TableRow>
 
-            <TextView android:text="Item Price"
-                android:textStyle="bold"
+            <TextView
+                android:gravity="center"
+                android:text="Item Price"
                 android:textColor="@color/black"
-                android:gravity="center"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/postPrice"
@@ -61,10 +68,11 @@
 
         <TableRow>
 
-            <TextView android:text="Loactaion"
-                android:textStyle="bold"
+            <TextView
+                android:gravity="center"
+                android:text="Loactaion"
                 android:textColor="@color/black"
-                android:gravity="center"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/postLocation"
@@ -74,32 +82,38 @@
 
         <TableRow>
 
-            <TextView android:text="Number of People"
-                android:textStyle="bold"
+            <TextView
+                android:gravity="center"
+                android:text="Number of People"
                 android:textColor="@color/black"
-                android:gravity="center"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/postPeople"
                 android:gravity="left"
                 android:hint="NumberOfPeople" />
         </TableRow>
+
         <TableRow>
-            <TextView android:text="기타사항"
-                android:textStyle="bold"
+
+            <TextView
+                android:gravity="center"
+                android:text="기타사항"
                 android:textColor="@color/black"
-                android:gravity="center"/>
+                android:textStyle="bold" />
 
 
-            <EditText android:id="@+id/postEtc"
+            <EditText
+                android:id="@+id/postEtc"
                 android:gravity="left"
-                android:hint="Etc"/>
+                android:hint="Etc" />
         </TableRow>
     </TableLayout>
+
     <Button
         android:id="@+id/postBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Posting"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:text="Posting" />
 </LinearLayout>
