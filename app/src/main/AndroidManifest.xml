@@ -21,11 +21,11 @@
         android:label="혼살둘살"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        android:networkSecurityConfig="@xml/network_config">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+<!--        android:networkSecurityConfig="@xml/network_config"-->
 <!--        <activity android:name=".UserInfoAdapter"></activity>-->
-        <activity android:name=".Api"
-            tools:ignore="Instantiatable"/>
+<!--        <activity android:name=".Api"-->
+<!--            tools:ignore="Instantiatable"/>-->
         <activity
             android:name=".Frag_info"
             tools:ignore="Instantiatable" />
