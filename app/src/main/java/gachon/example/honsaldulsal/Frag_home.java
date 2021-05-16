@@ -1,5 +1,6 @@
 package gachon.example.honsaldulsal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -82,13 +83,16 @@ public class Frag_home extends Fragment {
                 adapter.notifyDataSetChanged();
             }
 
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.e("Frag_home", String.valueOf(databaseError.toException()));
             }
         });
+
         adapter = new ProductAdapter(arrayList, getContext());
         recyclerView.setAdapter(adapter);
+
         return v;
 
     }

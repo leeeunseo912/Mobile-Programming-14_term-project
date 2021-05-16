@@ -1,9 +1,24 @@
 package gachon.example.honsaldulsal;
 
 public class Product {
+
+
+    private String image;
     private String item;
     private String location;
-    private String peopleNum;
+    private int currentNum;
+    private int peopleNum;
+    private String etc;
+    private String price;
+    private String quantity;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getItem() {
         return item;
@@ -21,11 +36,43 @@ public class Product {
         this.location = location;
     }
 
-    public String getPeopleNum() {
+    public int getPeopleNum() {
         return peopleNum;
     }
 
-    public void setPeopleNum(String peopleNum) {
+    public void setPeopleNum(int peopleNum) {
         this.peopleNum = peopleNum;
+    }
+
+    public int getCurrentNum() {
+        return currentNum;
+    }
+
+    public void setCurrentNum(int currentNum) {
+        this.currentNum = currentNum;
+    }
+
+    public String getEtc() {
+        return etc;
+    }
+
+    public void setEtc(String etc) {
+        this.etc = etc;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 }

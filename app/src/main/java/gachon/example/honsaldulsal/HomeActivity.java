@@ -24,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     private My_point myPoint;
     private My_information myInformation;
     private My_transaction myTransaction;
-
+    private Product_info productInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +79,7 @@ public class HomeActivity extends AppCompatActivity {
         myPoint = new My_point();
         myInformation = new My_information();
         myTransaction = new My_transaction();
+        productInfo = new Product_info();
         setFrag(0);
     }
 
@@ -114,6 +115,7 @@ public class HomeActivity extends AppCompatActivity {
                 ft.replace(R.id.frame_container,myTransaction);
                 ft.commit();
                 break;
+
         }
     }
 
