@@ -7,18 +7,20 @@
     xmlns:andrioid="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/goback1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:text="goback" />
 
     <TextView
         android:id="@+id/my_point_page"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="my point page"/>
-
+        android:text="my point page"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="30dp" />/>
+    <Button
+        android:id="@+id/goback1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="goback" />
 
 </LinearLayout>

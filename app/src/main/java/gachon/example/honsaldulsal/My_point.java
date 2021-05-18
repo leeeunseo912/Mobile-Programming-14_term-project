@@ -23,7 +23,7 @@ public class My_point extends Fragment {
         goback.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                ((HomeActivity)getActivity()).setFrag(2);
+                ((HomeActivity)getActivity()).setFrag(3);
             }
 
 
