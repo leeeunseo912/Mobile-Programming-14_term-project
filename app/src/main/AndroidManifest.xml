@@ -24,7 +24,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 <!--        android:networkSecurityConfig="@xml/network_config"-->
         <activity android:name=".UserInfoAdapter"
-            tools:ignore="Instantiatable"></activity>
+            tools:ignore="Instantiatable"/>
 <!--        <activity android:name=".Api"-->
 <!--            tools:ignore="Instantiatable"/>-->
         <activity

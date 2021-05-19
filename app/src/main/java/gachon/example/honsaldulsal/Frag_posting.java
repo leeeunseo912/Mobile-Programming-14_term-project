@@ -20,6 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 import static android.app.Activity.RESULT_CANCELED;
@@ -28,7 +30,6 @@ import static java.lang.System.exit;
 
 public class Frag_posting extends Fragment {
 
-    private DatabaseReference mDatabase;
     private ImageView imageView;
     private static String product = "Product";
 
@@ -36,7 +37,7 @@ public class Frag_posting extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v=inflater.inflate(R.layout.activity_frag_posting,container,false);
-
+// 이미지 선택
 //        imageView = v.findViewById(R.id.postImage);
 //        imageView.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -48,7 +49,6 @@ public class Frag_posting extends Fragment {
 //            }
 //
 //        });
-        mDatabase = FirebaseDatabase.getInstance().getReference("Product");
 
 
 
@@ -60,22 +60,42 @@ public class Frag_posting extends Fragment {
         EditText IEtc = v.findViewById(R.id.postEtc);
 
         Button postbtn = v.findViewById(R.id.postBtn);
-
+//      location
+//      FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        String email = user != null ? user.getEmail() : null;
+//        email = email.substring(0, email.indexOf("@"));
         postbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                double people = Integer.parseInt(Ipeople.getText().toString());
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference prod = database.getReference(product);
+                DatabaseReference myRef = database.getReference();
                 HashMap<String, Object> productValue = new HashMap<>();
-                productValue.put("etc", IEtc);
-                productValue.put("image", "");
-                productValue.put("item", Iname);
-                productValue.put("location", Ilocation);
-                productValue.put("peopleNum", Ipeople);
-                productValue.put("price", Iprice);
-                productValue.put("quantity", Iquantity);
+                productValue.put("currentNum", 3);
+                productValue.put("etc", IEtc.getText().toString());
+                productValue.put("image", "aaa");
+                productValue.put("item", Iname.getText().toString());
+                productValue.put("location", Ilocation.getText().toString());
+                productValue.put("peopleNum", people);
+                productValue.put("price", Iprice.getText().toString());
+                productValue.put("quantity", Iquantity.getText().toString());
+                productValue.put("chat", "");
+                myRef.child(product).child("Product519").setValue(productValue);
 
-                prod.child("Product20").updateChildren(productValue);
+                HashMap<String, Object> userValue = new HashMap<>();
+                userValue.put("username", "");
+                myRef.child(product).child("Product519").child("chat").setValue(userValue);
+
+                HashMap<String, Object> chatValue = new HashMap<>();
+                long now = System.currentTimeMillis();
+                Date date = new Date(now);
+                SimpleDateFormat sdf = new SimpleDateFormat("MM.dd HH:mm");
+                String getTime = sdf.format(date);
+                chatValue.put("message", "testing");
+                chatValue.put("time", getTime);
+                myRef.child(product).child("Product519").child("chat").child("username").setValue(chatValue);
+
+                Toast.makeText(getActivity(), "포스팅 완료", Toast.LENGTH_LONG).show();
             }
         });
 
