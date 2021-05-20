@@ -103,10 +103,6 @@ public class Frag_posting extends Fragment {
                 myRef.child(product).child(finalEmail + "Product").child("chat").child(finalEmail).setValue(chatValue);
 
                 Toast.makeText(getActivity(), "포스팅 완료", Toast.LENGTH_LONG).show();
-
-                Api api = new Api();
-                api.setUrl("http://openapi.price.go.kr/openApiImpl/ProductPriceInfoService/getProductPriceInfoSvc.do?goodInspectDay=20210205&goodId=610&ServiceKey=guzXVSYhnOFqxjzN4gPttMvavotVgqoFF5DKYN2cvhVJWQ8pPB0VzPxh6efzAAkJpT6iwxBcSVddOlN%2BK2oS%2FQ%3D%3D");
-
             }
         });
 
