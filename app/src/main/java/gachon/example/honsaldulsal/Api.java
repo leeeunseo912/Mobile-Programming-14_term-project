@@ -18,8 +18,13 @@ import javax.xml.parsers.ParserConfigurationException;
 public class Api extends AsyncTask<Void,Void,String> {
     private String url;
     String ItemName, ItemPrice;
+
+    public Api(){}
     public Api(String url){
         this.url=url;
+    }
+    public void setUrl(String url){
+        this.url = url;
     }
     @Override
     protected String doInBackground(Void... params){
