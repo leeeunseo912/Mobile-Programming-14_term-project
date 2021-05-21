@@ -64,7 +64,6 @@ public class Frag_posting extends Fragment {
 //      FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 //        String email = user != null ? user.getEmail() : null;
 //        email = email.substring(0, email.indexOf("@"));
-
         postbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
