@@ -1,14 +1,29 @@
 package gachon.example.honsaldulsal;
 
-import androidx.appcompat.app.AppCompatActivity;
+public class Chat {
+    private String id;
+    private String content;
+    private String time;
 
-import android.os.Bundle;
+    public Chat(){}
 
-public class Chat extends AppCompatActivity {
+    public Chat(String id, String content, String time) {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat);
+        this.id = id;
+        this.content = content;
+        this.time = time;
+    }
+
+
+    public String getId() {
+        return id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public String getTime() {
+        return time;
     }
 }
