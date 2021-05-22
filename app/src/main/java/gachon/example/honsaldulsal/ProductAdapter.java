@@ -51,6 +51,7 @@ public class  ProductAdapter extends RecyclerView.Adapter<ProductAdapter.CustomV
                 intent.putExtra("quantity", arrayList.get(position).getQuantity());
                 intent.putExtra("productKey",arrayList.get(position).getProductKey());
                 view.getContext().startActivity(intent);
+                System.out.println("Check "+ arrayList.get(position).getProductKey());
             }
         });
     }

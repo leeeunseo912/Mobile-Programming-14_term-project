@@ -36,9 +36,9 @@ public class Frag_chat extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.activity_frag_home,container,false);
+        View v=inflater.inflate(R.layout.activity_frag_chat,container,false);
 
-        recyclerView = (RecyclerView)v.findViewById(R.id.recyclerView);
+        recyclerView = (RecyclerView)v.findViewById(R.id.recyclerView_chat);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -61,14 +61,18 @@ public class Frag_chat extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String productKey;
                 arrayList.clear();
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
                     Product product = snapshot.getValue(Product.class);
+                    productKey = snapshot.getKey();
+                    product.setProductKey(productKey);
 
                     // DB에 직접연결
                     String check = String.valueOf(snapshot.child("chat"));
-                    if(check.contains(finalId))
+                    if(check.contains(finalId)) {
                         arrayList.add(product);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }

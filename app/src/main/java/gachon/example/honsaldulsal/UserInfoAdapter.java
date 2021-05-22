@@ -1,6 +1,8 @@
 package gachon.example.honsaldulsal;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +37,15 @@ public class  UserInfoAdapter extends RecyclerView.Adapter<UserInfoAdapter.Custo
         holder.location.setText(arrayList.get(position).getLocation());
         people = String.valueOf(arrayList.get(position).getCurrentNum()) + "명 / " + String.valueOf(arrayList.get(position).getPeopleNum()+"명");
         holder.people.setText(people);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() { //클릭시 이벤트
+            @Override //click시 상품의 데이터들을 product_info.java로 보내준다
+            public void onClick(View view) {
+                Intent chatIntent = new Intent(view.getContext().getApplicationContext(), ChatActivity.class);
+                chatIntent.putExtra("productKey", arrayList.get(position).getProductKey());
+                view.getContext().getApplicationContext().startActivity(chatIntent);
+            }
+        });
     }
 
     @Override

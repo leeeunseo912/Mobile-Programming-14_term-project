@@ -65,7 +65,6 @@ public class Product_info extends AppCompatActivity {
                 Intent chatIntent = new Intent(getApplicationContext(), ChatActivity.class);
                 chatIntent.putExtra("productKey", productKey);
                 startActivity(chatIntent);
-
             }
         });
     }
