@@ -1,14 +1,10 @@
 package gachon.example.honsaldulsal;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,6 +27,7 @@ public class Product_info extends AppCompatActivity {
     String etc;
     String price;
     String quantity;
+    String productKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +42,7 @@ public class Product_info extends AppCompatActivity {
         etc = intent.getStringExtra("etc");
         price = intent.getStringExtra("price");
         quantity = intent.getStringExtra("quantity");
+        productKey = intent.getStringExtra("productKey");
 
         image_tv = findViewById(R.id.itemImage);
         item_tv = findViewById(R.id.itemName);
@@ -64,7 +62,8 @@ public class Product_info extends AppCompatActivity {
         chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent chatIntent = new Intent(getApplicationContext(), Chat.class);
+                Intent chatIntent = new Intent(getApplicationContext(), ChatActivity.class);
+                chatIntent.putExtra("productKey", productKey);
                 startActivity(chatIntent);
 
             }

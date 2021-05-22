@@ -75,9 +75,12 @@ public class Frag_home extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String productKey;
                 arrayList.clear();
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
                     Product product = snapshot.getValue(Product.class);
+                    productKey = snapshot.getKey();
+                    product.setProductKey(productKey); // 디비에서 키를
                     arrayList.add(product);
                 }
                 adapter.notifyDataSetChanged();

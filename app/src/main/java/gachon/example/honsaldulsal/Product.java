@@ -11,6 +11,7 @@ public class Product {
     private String etc;
     private String price;
     private String quantity;
+    private String productKey;
 
     public String getImage() {
         return image;
@@ -74,5 +75,13 @@ public class Product {
 
     public void setQuantity(String quantity) {
         this.quantity = quantity;
+    }
+
+    public String getProductKey() {
+        return productKey;
+    }
+
+    public void setProductKey(String productKey) {
+        this.productKey = productKey;
     }
 }

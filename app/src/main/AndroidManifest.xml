@@ -64,7 +64,7 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".Product_info"/>
-        <activity android:name=".Chat"/>
+        <activity android:name=".ChatActivity"/>
     </application>
 
 </manifest>
