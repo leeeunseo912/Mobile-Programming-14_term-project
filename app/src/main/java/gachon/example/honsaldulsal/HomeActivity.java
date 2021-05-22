@@ -36,18 +36,6 @@ public class HomeActivity extends AppCompatActivity {
         Button searchBtn = (Button) findViewById(R.id.btn_search);
         Button locationBtn = (Button) findViewById(R.id.btn_loca);
 
-        SearchView searchView = findViewById(R.id.search_view);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
 
         // 구현필요
         searchBtn.setOnClickListener(new View.OnClickListener() {

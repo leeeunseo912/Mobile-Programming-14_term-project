@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import androidx.appcompat.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +22,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import io.grpc.ProxyDetector;
 
 public class Frag_home extends Fragment {
 
@@ -30,12 +35,19 @@ public class Frag_home extends Fragment {
     private ArrayList<Product> arrayList;
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
+    private SearchView searchView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v=inflater.inflate(R.layout.activity_frag_home,container,false);
+ //       items = Arrays.asList();
 
+//         Frag_home(List<String> items){
+//             this.items = items;
+//        }
+//
+//
 //        Button button = (Button)v.findViewById(R.id.btn_enlarge);
 //        button.setOnClickListener(new View.OnClickListener(){
 //            @Override
@@ -63,6 +75,8 @@ public class Frag_home extends Fragment {
 //                return rootView;
 //            }
 //        }
+
+
 
         recyclerView = (RecyclerView)v.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -93,7 +107,66 @@ public class Frag_home extends Fragment {
         adapter = new ProductAdapter(arrayList, getContext());
         recyclerView.setAdapter(adapter);
 
-        return v;
+        searchView = v.findViewById(R.id.search_view);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
 
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                final ArrayList<Product> filteredList = filter(arrayList,newText);
+                adapter.setFilter(filteredList);
+                return true; //입력하는 값을 실시간으로 받기 위해서 true로 고침침
+            }
+
+            private ArrayList<Product>filter(ArrayList<Product> products, String query){
+                query = query.toLowerCase();
+
+                ArrayList<Product> filteredList = new ArrayList<>();
+                for(Product product : products){
+                    final String text = product.getItem().toLowerCase();
+                    if(text.contains(query)){
+                        filteredList.add(product);
+                    }
+                }
+                return filteredList;
+            }
+        });
+
+        return v;
     }
+
+
+//    private String search(String query){
+//        StringBuilder stringBuilder = new StringBuilder();
+//        for(int i=0;i<items.size();i++) {
+//            String item = items.get(i);
+//            if (item.toLowerCase().contains(query.toLowerCase())) {
+//                stringBuilder.append(item);
+//            }
+//            else{
+//                stringBuilder.append(item + "\n");
+//            }
+//        }
+//        return stringBuilder.toString();
+//    }
+//
+//
+//
+//    private String getResult(){
+//        StringBuilder stringBuilder = new StringBuilder();
+//        for(int i=0;i<items.size();i++) {
+//            String item = items.get(i);
+//            if (i == items.size() - 1) {
+//                stringBuilder.append(item);
+//            }
+//            else{
+//                stringBuilder.append(item + "\n");
+//            }
+//        }
+//        return stringBuilder.toString();
+//    }
 }

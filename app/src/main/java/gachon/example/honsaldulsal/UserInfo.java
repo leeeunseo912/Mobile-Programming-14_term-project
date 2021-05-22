@@ -16,6 +16,7 @@ public class UserInfo{
 
     }
 
+
     public UserInfo(String email, String name, String birth, String location ,float point, String transaction, String chat) {
         this.email = email;
         this.name = name;
@@ -41,6 +42,8 @@ public class UserInfo{
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setBirth(String birth){ this.birth = birth;}
 
     public String getBirth() {
         return birth;
@@ -82,4 +85,10 @@ public class UserInfo{
 
         return result;
     }
+
+//    public UserInfo(String name, String email, String birth){
+//        this.name = name;
+//        this.email = email;
+//        this.birth = birth;
+//    }
 }

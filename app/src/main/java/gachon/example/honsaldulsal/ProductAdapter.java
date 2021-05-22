@@ -59,6 +59,12 @@ public class  ProductAdapter extends RecyclerView.Adapter<ProductAdapter.CustomV
         return (arrayList  != null ?arrayList.size() : 0);
     }
 
+    public void setFilter(ArrayList<Product> productList){
+        arrayList = new ArrayList<>();
+        arrayList.addAll(productList);
+        notifyDataSetChanged();
+    }
+
     public class CustomViewHolder extends RecyclerView.ViewHolder {
 
         TextView item;
