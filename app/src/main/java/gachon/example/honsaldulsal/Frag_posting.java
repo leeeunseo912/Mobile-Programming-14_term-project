@@ -16,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -60,10 +62,15 @@ public class Frag_posting extends Fragment {
         EditText IEtc = v.findViewById(R.id.postEtc);
 
         Button postbtn = v.findViewById(R.id.postBtn);
-//      location
-//      FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        String email = user != null ? user.getEmail() : null;
-//        email = email.substring(0, email.indexOf("@"));
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user != null ? user.getEmail() : null;
+        email = email.substring(0, email.indexOf("@"));
+        String finalEmail = email;
+
+        //      location
+
+
         postbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -80,11 +87,11 @@ public class Frag_posting extends Fragment {
                 productValue.put("price", Iprice.getText().toString());
                 productValue.put("quantity", Iquantity.getText().toString());
                 productValue.put("chat", "");
-                myRef.child(product).child("Product519").setValue(productValue);
+                myRef.child(product).child(finalEmail + "Product").setValue(productValue);
 
                 HashMap<String, Object> userValue = new HashMap<>();
                 userValue.put("username", "");
-                myRef.child(product).child("Product519").child("chat").setValue(userValue);
+                myRef.child(product).child(finalEmail + "Product").child("chat").setValue(userValue);
 
                 HashMap<String, Object> chatValue = new HashMap<>();
                 long now = System.currentTimeMillis();
@@ -93,7 +100,7 @@ public class Frag_posting extends Fragment {
                 String getTime = sdf.format(date);
                 chatValue.put("message", "testing");
                 chatValue.put("time", getTime);
-                myRef.child(product).child("Product519").child("chat").child("username").setValue(chatValue);
+                myRef.child(product).child(finalEmail + "Product").child("chat").child(finalEmail).setValue(chatValue);
 
                 Toast.makeText(getActivity(), "포스팅 완료", Toast.LENGTH_LONG).show();
             }
