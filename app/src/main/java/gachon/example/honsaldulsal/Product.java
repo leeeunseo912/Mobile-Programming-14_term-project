@@ -2,7 +2,6 @@ package gachon.example.honsaldulsal;
 
 public class Product {
 
-
     private String image;
     private String item;
     private String location;

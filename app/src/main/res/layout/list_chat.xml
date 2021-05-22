@@ -5,22 +5,22 @@
     android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/transaction"
+        android:id="@+id/item"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="transaction" />
+        android:text="item" />
 
     <TextView
-        android:id="@+id/host_name"
+        android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="host name" />
+        android:text="location" />
 
     <TextView
         android:id="@+id/chat_num"

@@ -4,6 +4,7 @@ public class Chat {
     private String id;
     private String content;
     private String time;
+    private String item;
 
     public Chat(){}
 
@@ -25,5 +26,9 @@ public class Chat {
 
     public String getTime() {
         return time;
+    }
+
+    public String getItem() {
+        return item;
     }
 }

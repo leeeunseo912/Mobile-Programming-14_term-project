@@ -29,6 +29,7 @@ public class ChatActivity extends AppCompatActivity {
     EditText edt;
     String id = "";
     String productKey = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
