@@ -87,21 +87,7 @@ public class Frag_posting extends Fragment {
                 productValue.put("price", Iprice.getText().toString());
                 productValue.put("quantity", Iquantity.getText().toString());
                 productValue.put("chat", "");
-                myRef.child(product).child(finalEmail + "Product").setValue(productValue);
-
-                HashMap<String, Object> userValue = new HashMap<>();
-                userValue.put("username", "");
-                myRef.child(product).child(finalEmail + "Product").child("chat").setValue(userValue);
-
-                HashMap<String, Object> chatValue = new HashMap<>();
-                long now = System.currentTimeMillis();
-                Date date = new Date(now);
-                SimpleDateFormat sdf = new SimpleDateFormat("MM.dd HH:mm");
-                String getTime = sdf.format(date);
-                chatValue.put("message", "testing");
-                chatValue.put("time", getTime);
-                myRef.child(product).child(finalEmail + "Product").child("chat").child(finalEmail).setValue(chatValue);
-
+                myRef.child(product).child(finalEmail + Iname.getText().toString()).setValue(productValue);
                 Toast.makeText(getActivity(), "포스팅 완료", Toast.LENGTH_LONG).show();
             }
         });
@@ -109,19 +95,19 @@ public class Frag_posting extends Fragment {
         return v;
 
     }
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data){
-//        if(requestCode == 0){
-//            if(resultCode == RESULT_OK){
-//                try{
-//                    InputStream in = getContentResolver().openInputStream(data.getData());
-//                    Bitmap img = BitmapFactory.decodeStream(in);
-//                    in.close();
-//                    imageView.setImageBitmap(img);
-//                }catch(Exception e){
-//                    exit(1);
-//                }
-//            }
-//        }
-//    }
+    public String getPrice(String name) {
+        String price = "";
+        if(name.equalsIgnoreCase("water")){
+            price = "500";
+        }else if(name.equalsIgnoreCase("handcream")){
+            price = "800";
+        }else if(name.equalsIgnoreCase("curry")){
+            price = "1790";
+        }else if(name.equalsIgnoreCase("Sesame oil")){
+            price =  "6000";
+        }else if(name.equalsIgnoreCase("Oyster Sauce")){
+            price = "3000";
+        }
+        return price;
+    }
 }
