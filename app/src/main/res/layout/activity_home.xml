@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity"
+    android:background="@color/background">
 
     <include
         layout="@layout/tool_bar"
@@ -16,17 +17,19 @@
     <FrameLayout
         android:id="@+id/frame_container"
         android:layout_width="match_parent"
-        android:layout_height="630dp"
-        > //height 일단 임의로 지정해 뒀습니다.
-    </FrameLayout>
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        >//height 일단 임의로 지정해 뒀습니다.
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
         android:layout_gravity="bottom"
-        app:itemBackground="@drawable/ic_launcher_background"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"
+        android:background="@color/Normal"
+        app:itemBackground="@drawable/menu_design"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
         app:menu="@menu/bottom_menu" />
+    </FrameLayout>
 </LinearLayout>

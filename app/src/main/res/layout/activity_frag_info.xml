@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Frag_info">
+    tools:context=".Frag_info"
+    android:background="@color/background">
 
 
     <RelativeLayout
@@ -72,14 +73,18 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_margin="10px"
-            android:text="My information " />
+            android:text="My information "
+            app:backgroundTint = "@null"
+            android:background="@drawable/button_design"/>
 
         <Button
             android:id="@+id/my_point"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_margin="10px"
-            android:text="My point" />
+            android:text="My point"
+            app:backgroundTint = "@null"
+            android:background="@drawable/button_design"/>
 
 
         <Button
@@ -87,6 +92,8 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_margin="10px"
-            android:text="My transaction List" />
+            android:text="My transaction List"
+            app:backgroundTint = "@null"
+            android:background="@drawable/button_design"/>
 
 </LinearLayout>

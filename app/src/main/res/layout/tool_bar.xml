@@ -5,7 +5,8 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#2FB6F4"
+    android:padding="10dp"
+    android:background="#A7FFEB"
     android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
@@ -23,14 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:text="위치설정"
-        />
-
-    <Button
-        android:id="@+id/btn_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="검색"
+        app:backgroundTint = "@null"
+        android:background="@drawable/button_design"
         />
 
 </androidx.appcompat.widget.Toolbar>

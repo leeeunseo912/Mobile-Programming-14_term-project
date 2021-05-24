@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SignUpActivity">
+    tools:context=".SignUpActivity"
+    android:background="@color/background">
     ​
     <ImageView
         android:id="@+id/imageView2"
@@ -78,6 +79,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Join"
+        app:backgroundTint = "@null"
+        android:background="@drawable/button_design"
         />
     ​
 </LinearLayout>

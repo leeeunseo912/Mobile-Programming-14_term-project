@@ -8,4 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="title">#2FB6F4</color>
+    <color name="Clicked">#E9FF00</color>
+    <color name="Border">#4E3E3E</color>
+    <color name="Normal">#FFFF8D</color>
+    <color name="background">#D7F6EF</color>
+    <color name="list">#E2FFBF</color>
 </resources>

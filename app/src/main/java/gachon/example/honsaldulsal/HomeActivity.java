@@ -31,16 +31,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);//main이 아닌 home으로
 
-        Button searchBtn = (Button) findViewById(R.id.btn_search);
         Button locationBtn = (Button) findViewById(R.id.btn_loca);
-
-        // 구현필요
-        searchBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
         // Map activity로 연결
         locationBtn.setOnClickListener(new View.OnClickListener() {

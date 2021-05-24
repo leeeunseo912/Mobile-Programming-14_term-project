@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:andrioid="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/background">
 
 
     <Button
@@ -13,7 +14,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:text="goback" />
+        android:text="goback"
+
+        android:background="@drawable/button_design"
+        />
 
     <TextView
         android:id="@+id/my_transaction_page"
