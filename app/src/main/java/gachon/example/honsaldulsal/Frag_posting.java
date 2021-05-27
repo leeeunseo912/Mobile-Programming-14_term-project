@@ -3,7 +3,10 @@ package gachon.example.honsaldulsal;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,15 +19,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
@@ -34,7 +44,8 @@ public class Frag_posting extends Fragment {
 
     private ImageView imageView;
     private static String product = "Product";
-
+    FirebaseDatabase database;
+    DatabaseReference myRef;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,7 +68,6 @@ public class Frag_posting extends Fragment {
         EditText Iname = v.findViewById(R.id.postItem);
         EditText Iquantity = v.findViewById(R.id.postQuantity);
         EditText Iprice = v.findViewById(R.id.postPrice);
-        EditText Ilocation = v.findViewById(R.id.postLocation);
         EditText Ipeople = v.findViewById(R.id.postPeople);
         EditText IEtc = v.findViewById(R.id.postEtc);
 
@@ -70,23 +80,58 @@ public class Frag_posting extends Fragment {
 
         //      location
 
+        final String[] loc = {new String()};
+        final String[] loc_str = {null};
+        myRef = database.getInstance().getReference();
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange( DataSnapshot snapshot) {
+                loc[0] = (String)snapshot.child("UserInfo").child(finalEmail).child("location").getValue();
+                String lat = loc[0].substring(3,12);
+                String lan = loc[0].substring(17);
+                Double d1 = Double.parseDouble(lat);
+                Double d2 = Double.parseDouble(lan);
 
+                List<Address> address = null;
+                final Geocoder geocoder = new Geocoder(getActivity());
+                try {
+                    address = geocoder.getFromLocation(d1, d2, 10);
+                    if(address!=null){
+                        loc_str[0] = address.get(0).toString();
+                        int index = loc_str[0].lastIndexOf("\"");
+                        loc_str[0] = loc_str[0].substring(25, index);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+
+            }
+        });
+
+
+        String finalLoc_str = loc_str[0];
+        //push info to firebase
         postbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 double people = Integer.parseInt(Ipeople.getText().toString());
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference();
+                database = FirebaseDatabase.getInstance();
+                myRef = database.getReference();
                 HashMap<String, Object> productValue = new HashMap<>();
-                productValue.put("currentNum", 3);
+                final Object currentNum = productValue.put("currentNum", 3);
                 productValue.put("etc", IEtc.getText().toString());
                 productValue.put("image", "aaa");
                 productValue.put("item", Iname.getText().toString());
-                productValue.put("location", Ilocation.getText().toString());
+                productValue.put("location", finalLoc_str);
                 productValue.put("peopleNum", people);
                 productValue.put("price", Iprice.getText().toString());
                 productValue.put("quantity", Iquantity.getText().toString());
-                productValue.put("chat", "");
                 myRef.child(product).child(finalEmail + Iname.getText().toString()).setValue(productValue);
                 Toast.makeText(getActivity(), "포스팅 완료", Toast.LENGTH_LONG).show();
             }
