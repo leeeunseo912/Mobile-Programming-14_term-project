@@ -21,8 +21,6 @@ public class HomeActivity extends AppCompatActivity {
     private Frag_info info;
     private Frag_posting posting;
     private Frag_chat chat;
-    private My_point myPoint;
-    private My_information myInformation;
     private My_transaction myTransaction;
     private Product_info productInfo;
 
@@ -67,8 +65,6 @@ public class HomeActivity extends AppCompatActivity {
         info = new Frag_info();
         posting = new Frag_posting();
         chat = new Frag_chat();
-        myPoint = new My_point();
-        myInformation = new My_information();
         myTransaction = new My_transaction();
         productInfo = new Product_info();
         setFrag(0);
@@ -95,14 +91,6 @@ public class HomeActivity extends AppCompatActivity {
                 ft.commit();
                 break;
             case 4:
-                ft.replace(R.id.frame_container,myPoint);
-                ft.commit();
-                break;
-            case 5:
-                ft.replace(R.id.frame_container,myInformation);
-                ft.commit();
-                break;
-            case 6:
                 ft.replace(R.id.frame_container,myTransaction);
                 ft.commit();
                 break;

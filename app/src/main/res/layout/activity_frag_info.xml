@@ -19,81 +19,216 @@
             android:id="@+id/textView_info"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
+            android:paddingLeft="100dp"
             android:text="My information"
+            android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"
              />
-
-        <ImageView
-            android:id="@+id/user"
-            android:layout_width="43dp"
-            android:layout_height="47dp"
-            android:layout_marginLeft="159dp"
-            android:layout_toRightOf="@id/textView_info"
-            android:src="@drawable/setting_icon" />
 
     </RelativeLayout>
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="182dp">
+        android:layout_height="150dp">
 
         <ImageView
             android:id="@+id/user_image"
-            android:layout_width="186dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:padding="50dp"
-            android:scaleType="fitStart"
-            app:srcCompat="@drawable/default_user_image" />
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/default_user_image"
+            android:scaleType="fitCenter"/>
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@id/user_image"
-            android:layout_toRightOf="@id/user_image"
-            android:text="사용자이름"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/name"
-            android:layout_alignLeft="@id/name"
-            android:layout_marginTop="7dp"
-            android:text="id@gmail.com"
-            android:textSize="20sp" />
 
     </RelativeLayout>
 
-        <Button
-            android:id="@+id/my_info"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="10px"
-            android:text="My information "
-            app:backgroundTint = "@null"
-            android:background="@drawable/button_design"/>
-
-        <Button
-            android:id="@+id/my_point"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="10px"
-            android:text="My point"
-            app:backgroundTint = "@null"
-            android:background="@drawable/button_design"/>
+            android:layout_height="match_parent"
+            android:paddingLeft="15dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:text="Member information"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
 
-        <Button
-            android:id="@+id/trans_list"
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="10px"
-            android:text="My transaction List"
-            app:backgroundTint = "@null"
-            android:background="@drawable/button_design"/>
+            android:layout_height="2dp"
+            android:paddingTop="150dp"
+            android:background="#010101"/>
+
+        <TextView
+            android:id="@+id/nameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="24dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:textColor="@color/black"
+            android:text="  Name"/>
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/nameLabel"
+            android:textColor="@color/black"
+            android:paddingLeft="40dp" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:paddingTop="150dp"
+            android:background="#010101"/>
+
+        <TextView
+            android:id="@+id/emailLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="27dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:textColor="@color/black"
+            android:text="  Email"/>
+
+        <TextView
+            android:id="@+id/useremail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/emailLabel"
+            android:textColor="@color/black"
+            android:paddingLeft="40dp" />
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:paddingTop="150dp"
+            android:background="#010101"/>
+
+        <TextView
+            android:id="@+id/birthLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:textColor="@color/black"
+            android:text="BirthDay"/>
+        <TextView
+            android:id="@+id/userbirth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/birthLabel"
+            android:textColor="@color/black"
+            android:paddingLeft="40dp" />
+
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:paddingTop="150dp"
+            android:background="#010101"/>
+
+        <TextView
+            android:id="@+id/pointLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="14dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:textColor="@color/black"
+            android:text="My point"/>
+
+        <TextView
+            android:id="@+id/userpoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/pointLabel"
+            android:textColor="@color/black"
+            android:paddingLeft="40dp" />
+
+
+
+
+    </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:paddingTop="150dp"
+            android:background="#010101"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="5dp"/>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="45dp">
+
+    <Button
+        android:id="@+id/trans_list"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10px"
+        android:text="My transaction List"
+        app:backgroundTint = "@null"
+        android:background="@drawable/button_design"/>
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10px"
+        android:layout_toRightOf="@+id/trans_list"
+        android:text="Logout"
+        android:background="@drawable/button_design"/>
+
+</RelativeLayout>
+
+
+
 
 </LinearLayout>
