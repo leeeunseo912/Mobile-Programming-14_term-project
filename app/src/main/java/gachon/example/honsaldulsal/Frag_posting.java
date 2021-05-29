@@ -124,16 +124,20 @@ public class Frag_posting extends Fragment {
     }
     public String getPrice(String name) {
         String price = "";
-        if(name.equalsIgnoreCase("water")){
+        if(name.equalsIgnoreCase("물")){
             price = "500";
-        }else if(name.equalsIgnoreCase("handcream")){
+        }else if(name.equalsIgnoreCase("핸드크림")){
             price = "800";
-        }else if(name.equalsIgnoreCase("curry")){
+        }else if(name.equalsIgnoreCase("카레")){
             price = "1790";
-        }else if(name.equalsIgnoreCase("Sesame oil")){
+        }else if(name.equalsIgnoreCase("참기름")){
             price =  "6000";
-        }else if(name.equalsIgnoreCase("Oyster Sauce")){
+        }else if(name.equalsIgnoreCase("굴소스")) {
             price = "3000";
+        }else if(name.equalsIgnoreCase("휴지")){
+            price = "8000";
+        }else if(name.equalsIgnoreCase("섬유유연제")){
+            price = "7000";
         }else
             price = name;
         return price;
