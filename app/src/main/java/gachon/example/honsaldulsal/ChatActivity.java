@@ -1,15 +1,19 @@
 package gachon.example.honsaldulsal;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -17,18 +21,23 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ChatActivity extends AppCompatActivity {
     ArrayList<Chat> list = new ArrayList<>();
     ListView lv;
     Button btn;
+    Button complete;
     EditText edt;
     String id = "";
     String productKey = "";
+    int cnum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,18 +48,17 @@ public class ChatActivity extends AppCompatActivity {
         lv = findViewById(R.id.listView);
         edt = findViewById(R.id.editText);
         btn = findViewById(R.id.bnt_send);
+        complete = findViewById(R.id.complete);
+
 
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference().child("Product").child(productKey).child("chat");
+        DatabaseReference mycRef = database.getReference().child("Product").child(productKey);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String email = user != null ? user.getEmail() : null;
         email = email.substring(0, email.indexOf("@"));
         id = email;
-
-
-        //로그인한 아이디
-        //lv.setAdapter(adapter);
 
 
         final ChatAdapter adapter = new ChatAdapter(getApplicationContext(), R.layout.talklist, list, id);
@@ -77,6 +85,27 @@ public class ChatActivity extends AppCompatActivity {
                     edt.setText("");
 
                 }
+            }
+        });
+
+        complete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mycRef.child("complete").setValue(++cnum);
+            }
+        });
+
+
+        mycRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Complete com = snapshot.getValue(Complete.class);
+                cnum = com.getCnum();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
 
