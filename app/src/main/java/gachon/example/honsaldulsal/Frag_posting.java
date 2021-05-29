@@ -78,7 +78,7 @@ public class Frag_posting extends Fragment {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference();
                 HashMap<String, Object> productValue = new HashMap<>();
-                productValue.put("currentNum", 1);
+                productValue.put("currentNum", 3);
                 productValue.put("etc", IEtc.getText().toString());
                 productValue.put("image", "aaa");
                 productValue.put("item", Iname.getText().toString());
@@ -87,10 +87,7 @@ public class Frag_posting extends Fragment {
                 productValue.put("price", Iprice.getText().toString());
                 productValue.put("quantity", Iquantity.getText().toString());
                 productValue.put("chat", "");
-                productValue.put("par", finalEmail);
                 myRef.child(product).child(finalEmail + Iname.getText().toString()).setValue(productValue);
-                myRef.child(product).child(finalEmail + Iname.getText().toString()).child("complete").setValue(0);
-                myRef.child(product).child(finalEmail + Iname.getText().toString()).child("par").child("1").child("id").setValue(finalEmail);
                 Toast.makeText(getActivity(), "포스팅 완료", Toast.LENGTH_LONG).show();
             }
         });

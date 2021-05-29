@@ -16,15 +16,12 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="15dp"
         app:srcCompat="@mipmap/ic_main" />
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:stretchColumns="*"
-        android:fontFamily="@font/hanna">
+        android:stretchColumns="*">
 
         <TableRow
             android:layout_width="match_parent"
@@ -34,14 +31,12 @@
                 android:gravity="center"
                 android:text="Item Name"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:fontFamily="@font/hanna"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/postItem"
                 android:gravity="left"
-                android:hint="itemName"
-                android:fontFamily="@font/hanna"/>
+                android:hint="itemName" />
         </TableRow>
 
         <TableRow>
@@ -50,14 +45,12 @@
                 android:gravity="center"
                 android:text="Quantity of Item"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:fontFamily="@font/hanna"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/postQuantity"
                 android:gravity="left"
-                android:hint="itemQuantity"
-                android:fontFamily="@font/hanna"/>
+                android:hint="itemQuantity" />
         </TableRow>
 
         <TableRow>
@@ -66,14 +59,12 @@
                 android:gravity="center"
                 android:text="Item Price"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:fontFamily="@font/hanna"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/postPrice"
                 android:gravity="left"
-                android:hint="itemPrice"
-                android:fontFamily="@font/hanna"/>
+                android:hint="itemPrice" />
         </TableRow>
 
         <TableRow>
@@ -82,14 +73,12 @@
                 android:gravity="center"
                 android:text="Loactaion"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:fontFamily="@font/hanna"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/postLocation"
                 android:gravity="left"
-                android:hint="Loacation"
-                android:fontFamily="@font/hanna"/>
+                android:hint="Loacation" />
         </TableRow>
 
         <TableRow>
@@ -98,14 +87,12 @@
                 android:gravity="center"
                 android:text="Number of People"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:fontFamily="@font/hanna"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/postPeople"
                 android:gravity="left"
-                android:hint="NumberOfPeople"
-                android:fontFamily="@font/hanna"/>
+                android:hint="NumberOfPeople" />
         </TableRow>
 
         <TableRow>
@@ -114,26 +101,22 @@
                 android:gravity="center"
                 android:text="기타사항"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:fontFamily="@font/hanna"/>
+                android:textStyle="bold" />
 
 
             <EditText
                 android:id="@+id/postEtc"
                 android:gravity="left"
-                android:hint="Etc"
-                android:fontFamily="@font/hanna"/>
+                android:hint="Etc" />
         </TableRow>
     </TableLayout>
 
     <Button
-        android:layout_marginTop="20dp"
         android:id="@+id/postBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Posting"
         app:backgroundTint = "@null"
-        android:background="@drawable/button_design"
-        android:fontFamily="@font/hanna"/>
+        android:background="@drawable/button_design"/>
 </LinearLayout>
