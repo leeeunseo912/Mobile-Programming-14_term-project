@@ -88,25 +88,6 @@ public class Frag_posting extends Fragment {
             @Override
             public void onDataChange( DataSnapshot snapshot) {
                 loc[0] = (String)snapshot.child("UserInfo").child(finalEmail).child("location").getValue();
-//                String lat = loc[0].substring(3,12);
-//                String lan = loc[0].substring(17);
-//                Double d1 = Double.parseDouble(lat);
-//                Double d2 = Double.parseDouble(lan);
-//
-//                List<Address> address = null;
-//                final Geocoder geocoder = new Geocoder(getActivity());
-//                try {
-//                    address = geocoder.getFromLocation(d1, d2, 10);
-//                    if(address!=null){
-//                        loc_str[0] = address.get(0).toString();
-//                        int index = loc_str[0].lastIndexOf("\"");
-//                        loc_str[0] = loc_str[0].substring(25, index);
-//                    }
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-
-
             }
 
             @Override
