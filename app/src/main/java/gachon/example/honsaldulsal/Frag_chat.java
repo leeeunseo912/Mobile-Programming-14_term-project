@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Frag_chat extends Fragment {
+public class  Frag_chat extends Fragment {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
