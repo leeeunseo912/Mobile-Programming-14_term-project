@@ -68,7 +68,7 @@ public class Frag_posting extends Fragment {
 
         EditText Iname = v.findViewById(R.id.postItem);
         EditText Iquantity = v.findViewById(R.id.postQuantity);
-
+        EditText Ilocation = v.findViewById(R.id.postLocation);
         EditText Ipeople = v.findViewById(R.id.postPeople);
         EditText IEtc = v.findViewById(R.id.postEtc);
 
@@ -108,7 +108,8 @@ public class Frag_posting extends Fragment {
                 productValue.put("etc", IEtc.getText().toString());
                 productValue.put("image", "aaa");
                 productValue.put("item", Iname.getText().toString());
-                productValue.put("location", loc[0]);
+                productValue.put("location", Ilocation.getText().toString());
+                productValue.put("address", loc[0]);
                 productValue.put("peopleNum", people);
                 productValue.put("price", getPrice(Iname.getText().toString()));
                 productValue.put("quantity", Iquantity.getText().toString());
