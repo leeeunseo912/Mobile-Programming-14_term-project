@@ -96,8 +96,6 @@ public class Frag_posting extends Fragment {
             }
         });
 
-
-        String finalLoc_str = loc[0];
         //push info to firebase
         postbtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -110,7 +108,7 @@ public class Frag_posting extends Fragment {
                 productValue.put("etc", IEtc.getText().toString());
                 productValue.put("image", "aaa");
                 productValue.put("item", Iname.getText().toString());
-                productValue.put("location", finalLoc_str);
+                productValue.put("location", loc[0]);
                 productValue.put("peopleNum", people);
                 productValue.put("price", getPrice(Iname.getText().toString()));
                 productValue.put("quantity", Iquantity.getText().toString());
