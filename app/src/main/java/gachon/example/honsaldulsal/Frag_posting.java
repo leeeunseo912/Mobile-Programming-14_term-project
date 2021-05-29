@@ -112,7 +112,7 @@ public class Frag_posting extends Fragment {
                 productValue.put("item", Iname.getText().toString());
                 productValue.put("location", finalLoc_str);
                 productValue.put("peopleNum", people);
-                productValue.put("price", Iprice.getText().toString());
+                productValue.put("price", getPrice(Iprice.getText().toString()));
                 productValue.put("quantity", Iquantity.getText().toString());
                 myRef.child(product).child(finalEmail + Iname.getText().toString()).setValue(productValue);
                 Toast.makeText(getActivity(), "포스팅 완료", Toast.LENGTH_LONG).show();
@@ -134,7 +134,8 @@ public class Frag_posting extends Fragment {
             price =  "6000";
         }else if(name.equalsIgnoreCase("Oyster Sauce")){
             price = "3000";
-        }
+        }else
+            price = name;
         return price;
     }
 }
