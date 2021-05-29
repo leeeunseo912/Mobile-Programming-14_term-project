@@ -68,7 +68,7 @@ public class Frag_posting extends Fragment {
 
         EditText Iname = v.findViewById(R.id.postItem);
         EditText Iquantity = v.findViewById(R.id.postQuantity);
-        EditText Iprice = v.findViewById(R.id.postPrice);
+
         EditText Ipeople = v.findViewById(R.id.postPeople);
         EditText IEtc = v.findViewById(R.id.postEtc);
 
@@ -97,7 +97,7 @@ public class Frag_posting extends Fragment {
         });
 
 
-        String finalLoc_str = loc_str[0];
+        String finalLoc_str = loc[0];
         //push info to firebase
         postbtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -112,7 +112,7 @@ public class Frag_posting extends Fragment {
                 productValue.put("item", Iname.getText().toString());
                 productValue.put("location", finalLoc_str);
                 productValue.put("peopleNum", people);
-                productValue.put("price", getPrice(Iprice.getText().toString()));
+                productValue.put("price", getPrice(Iname.getText().toString()));
                 productValue.put("quantity", Iquantity.getText().toString());
                 myRef.child(product).child(finalEmail + Iname.getText().toString()).setValue(productValue);
                 Toast.makeText(getActivity(), "포스팅 완료", Toast.LENGTH_LONG).show();
