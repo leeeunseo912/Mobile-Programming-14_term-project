@@ -30,6 +30,7 @@
         app:itemBackground="@drawable/menu_design"
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"
-        app:menu="@menu/bottom_menu" />
+        app:menu="@menu/bottom_menu"
+        android:fontFamily="@font/hanna"/>
     </FrameLayout>
 </LinearLayout>

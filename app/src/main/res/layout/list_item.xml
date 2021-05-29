@@ -20,7 +20,9 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="물품이름 들어갈 곳" />
+            android:text="물품이름 들어갈 곳"
+            android:textSize="20dp"
+            android:fontFamily="@font/hanna"/>
 
         <TextView
             android:id="@+id/location"
@@ -29,7 +31,9 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="위치들어갈곳" />
+            android:text="위치들어갈곳"
+            android:textSize="17dp"
+            android:fontFamily="@font/hanna"/>
 
         <TextView
             android:id="@+id/people"
@@ -38,6 +42,8 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="사람들어갈곳" />
+            android:text="사람들어갈곳"
+            android:textSize="20dp"
+            android:fontFamily="@font/hanna"/>
 <!--    </Button>-->
 </LinearLayout>

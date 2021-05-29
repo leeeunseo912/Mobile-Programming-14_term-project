@@ -13,7 +13,9 @@
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="item" />
+        android:text="item"
+        android:fontFamily="@font/hanna"
+        android:textSize="20dp"/>
 
     <TextView
         android:id="@+id/location"
@@ -22,7 +24,9 @@
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="location" />
+        android:text="location"
+        android:textSize="17dp"
+        android:fontFamily="@font/hanna"/>
 
     <TextView
         android:id="@+id/chat_num"
@@ -31,5 +35,7 @@
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="people number" />
+        android:text="people number"
+        android:textSize="20dp"
+        android:fontFamily="@font/hanna"/>
 </LinearLayout>

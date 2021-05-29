@@ -28,6 +28,7 @@
         android:layout_marginStart="8dp"
         android:text="혼살둘살"
         android:textSize="30dp"
+        android:fontFamily="@font/hanna"
         />
     ​
     <EditText
@@ -52,8 +53,8 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPassword" />
-    ​
+        android:inputType="textPassword"
+        />​
     <Button
         android:id="@+id/btn_login"
         android:layout_width="wrap_content"
@@ -62,7 +63,8 @@
         android:layout_margin="5dp"
         android:text="로그인"
         app:backgroundTint = "@null"
-        android:background="@drawable/button_design"/>
+        android:background="@drawable/button_design"
+        android:fontFamily="@font/hanna"/>
     ​
     <Button
         android:id="@+id/btn_signup"
@@ -71,6 +73,7 @@
         android:layout_marginTop="5dp"
         android:layout_gravity="center"
         android:text="회원가입"
-        android:background="@drawable/button_design"/>
+        android:background="@drawable/button_design"
+        android:fontFamily="@font/hanna"/>
     ​
 </LinearLayout>

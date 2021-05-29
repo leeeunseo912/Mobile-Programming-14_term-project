@@ -25,7 +25,8 @@
                 android:gravity="center"
                 android:singleLine="true"
                 android:text="실시간 위치설정"
-                android:textSize="22dp" />
+                android:textSize="22dp"
+                android:fontFamily="@font/hanna"/>
 
             <Button
                 android:id="@+id/list_btn"
