@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +32,7 @@ public class My_transaction extends Fragment {
     private ArrayList<Product> arrayList;
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
@@ -51,15 +54,29 @@ public class My_transaction extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         arrayList = new ArrayList<>();
 
-        database = FirebaseDatabase.getInstance(); // 파이어베이스 데이터베이스 연동
-        databaseReference = database.getReference("Product"); // DB 테이블 연결
+        String id = "";
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user != null ? user.getEmail() : null;
+        email = email.substring(0, email.indexOf("@"));
+        id = email;
+        String finalId = id;
+
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("Product");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String productKey;
                 arrayList.clear();
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
                     Product product = snapshot.getValue(Product.class);
-                    arrayList.add(product);
+
+                    productKey = snapshot.getKey();
+                    product.setProductKey(productKey);
+
+                    if(productKey.contains(finalId)) {
+                        arrayList.add(product);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
