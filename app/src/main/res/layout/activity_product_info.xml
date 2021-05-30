@@ -43,7 +43,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:textSize="30sp"
-                            android:text="test"
+                            android:text="가격"
                             android:gravity="center"
                             android:fontFamily="@font/hanna"
                                 />
@@ -69,35 +69,38 @@
                             android:fontFamily="@font/hanna"
                                 />
 
-                        <TextView
-                            android:id="@+id/host"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="host정보"
-                            android:gravity="center"
-                            android:textSize="30sp"
-                            android:fontFamily="@font/hanna"/>
+
+
+
                 </LinearLayout>
+                <TextView
+                    android:id="@+id/host"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="host정보"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/hanna"/>
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textSize="30sp"
+                    android:text="location"
+                    android:fontFamily="@font/hanna"/>
+
                 <TextView
                     android:id="@+id/etc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:gravity="center"
-                    android:textSize="30sp"
-                    android:text="etc"
+                    android:layout_margin="10dp"
                     android:fontFamily="@font/hanna"
-                        />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
                     android:gravity="center"
-                    android:textSize="30sp"
-                    android:text="가격정보들어갈곳"
-                    android:fontFamily="@font/hanna"/>
-
+                    android:text="etc"
+                    android:textSize="30sp" />
         </LinearLayout>
         <Button
             android:id="@+id/chat"
