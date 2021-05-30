@@ -16,8 +16,8 @@
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:fontFamily="@font/hanna"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -31,6 +31,7 @@
         android:layout_gravity="center"
         android:text="goback"
         android:background="@drawable/button_design"
+        android:fontFamily="@font/hanna"
         />
 
 
