@@ -33,6 +33,8 @@ public class Product_info extends AppCompatActivity {
     TextView price_tv;
     TextView people_tv;
     TextView etc_tv;
+    TextView host_tv;
+    TextView location_tv;
     Button chat;
     String image;
     String item;
@@ -42,6 +44,7 @@ public class Product_info extends AppCompatActivity {
     String price;
     String quantity;
     String productKey;
+    String host;
     int cur=0;
     int tnum=0;
     String id;
@@ -52,28 +55,31 @@ public class Product_info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_info);
 
-
         Intent intent = getIntent();
         image = intent.getStringExtra("image");
         item = intent.getStringExtra("item");
-        location = intent.getStringExtra("item");
+        location = intent.getStringExtra("location");
         people = intent.getStringExtra("people");
         etc = intent.getStringExtra("etc");
         price = intent.getStringExtra("price");
         quantity = intent.getStringExtra("quantity");
         productKey = intent.getStringExtra("productKey");
+        host = intent.getStringExtra("host");
 
         image_tv = findViewById(R.id.itemImage);
         item_tv = findViewById(R.id.itemName);
         price_tv = findViewById(R.id.price);
         people_tv = findViewById(R.id.people);
         etc_tv = findViewById(R.id.etc);
+        host_tv = findViewById(R.id.host);
         chat = findViewById(R.id.chat);
-        Glide.with(this)
-                .load(image)
-                .into(this.image_tv); //이미지 삽입
+        location_tv = findViewById(R.id.location);
+        //Glide.with(this)
+        //        .load(image)
+        //.into(this.image_tv); //이미지 삽입
+        location_tv.setText("위치 : " + location);
         item_tv.setText(item);
-        price_tv.setText(price);
+        price_tv.setText(price + "원");
         etc_tv.setText(etc);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -84,7 +90,28 @@ public class Product_info extends AppCompatActivity {
         email = email.substring(0, email.indexOf("@"));
         id = email;
 
+        host = productKey.replace(item, "");
+        host_tv.setText("Host : " + host);
 
+        // 이미지 강제설정
+        if (item.contains("삼다수") == true)
+            image_tv.setImageResource(R.drawable.water);
+        else if (item.contains("삼분카레") == true)
+            image_tv.setImageResource(R.drawable.curry);
+        else if (item.contains("김") == true)
+            image_tv.setImageResource(R.drawable.kim);
+        else if (item.contains("휴지"))
+            image_tv.setImageResource(R.drawable.tissue);
+        else if (item.contains("다우니"))
+            image_tv.setImageResource(R.drawable.downy);
+        else if (item.contains("세제"))
+            image_tv.setImageResource(R.drawable.beet);
+        else if (item.contains("면도날") == true)
+            image_tv.setImageResource(R.drawable.gillette);
+        else if (item.contains("마스크") == true)
+            image_tv.setImageResource(R.drawable.mask);
+        else
+            image_tv.setImageResource(R.drawable.set_image);
 
         chat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,7 +157,7 @@ public class Product_info extends AppCompatActivity {
                         chat.setText("만원");
                         chat.setEnabled(false);
                     }
-                    people_tv.setText(cur + "명 / " + tnum + "명");
+                    people_tv.setText("현재 - "+ cur + "명 / " + tnum + "명");
                 }
                 catch (NullPointerException e){
                     Log.e("null","null");
