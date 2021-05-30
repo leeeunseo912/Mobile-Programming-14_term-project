@@ -18,8 +18,11 @@ import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
@@ -34,7 +37,8 @@ public class Frag_posting extends Fragment {
 
     private ImageView imageView;
     private static String product = "Product";
-
+    FirebaseDatabase database;
+    DatabaseReference myRef;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,7 +61,6 @@ public class Frag_posting extends Fragment {
         EditText Iname = v.findViewById(R.id.postItem);
         EditText Iquantity = v.findViewById(R.id.postQuantity);
         EditText Iprice = v.findViewById(R.id.postPrice);
-        EditText Ilocation = v.findViewById(R.id.postLocation);
         EditText Ipeople = v.findViewById(R.id.postPeople);
         EditText IEtc = v.findViewById(R.id.postEtc);
 
@@ -69,24 +72,35 @@ public class Frag_posting extends Fragment {
         String finalEmail = email;
 
         //      location
+        final String[] loc = {new String()};
+        myRef = database.getInstance().getReference();
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                loc[0] = (String)snapshot.child("UserInfo").child(finalEmail).child("location").getValue();
+            }
 
+            @Override
+            public void onCancelled(DatabaseError error) {
+
+            }
+        });
 
         postbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 double people = Integer.parseInt(Ipeople.getText().toString());
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference();
+                database = FirebaseDatabase.getInstance();
+                myRef = database.getReference();
                 HashMap<String, Object> productValue = new HashMap<>();
                 productValue.put("currentNum", 1);
                 productValue.put("etc", IEtc.getText().toString());
                 productValue.put("image", "aaa");
                 productValue.put("item", Iname.getText().toString());
-                productValue.put("location", Ilocation.getText().toString());
+                productValue.put("location", loc[0]);
                 productValue.put("peopleNum", people);
                 productValue.put("price", getPrice(Iprice.getText().toString()));
                 productValue.put("quantity", Iquantity.getText().toString());
-                productValue.put("chat", "");
                 productValue.put("par", finalEmail);
                 myRef.child(product).child(finalEmail + Iname.getText().toString()).setValue(productValue);
                 myRef.child(product).child(finalEmail + Iname.getText().toString()).child("complete").setValue(0);
