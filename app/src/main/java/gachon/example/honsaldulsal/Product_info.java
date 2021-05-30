@@ -64,7 +64,6 @@ public class Product_info extends AppCompatActivity {
         price = intent.getStringExtra("price");
         quantity = intent.getStringExtra("quantity");
         productKey = intent.getStringExtra("productKey");
-        host = intent.getStringExtra("host");
 
         image_tv = findViewById(R.id.itemImage);
         item_tv = findViewById(R.id.itemName);
