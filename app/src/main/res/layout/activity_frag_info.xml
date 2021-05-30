@@ -24,6 +24,7 @@
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"
+            android:fontFamily="@font/hanna"
              />
 
     </RelativeLayout>
@@ -40,9 +41,9 @@
             android:layout_gravity="center"
             android:padding="50dp"
             android:layout_centerHorizontal="true"
-            android:scaleType="fitCenter"/>
-            //android:src="@drawable/default_user_image"
-
+            android:scaleType="fitCenter"
+            android:src="@drawable/default_user_image"
+            />
     </RelativeLayout>
 
     <LinearLayout
@@ -56,7 +57,8 @@
             android:paddingBottom="20dp"
             android:text="Member information"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:fontFamily="@font/hanna"/>
 
 
     </LinearLayout>
@@ -80,7 +82,8 @@
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
             android:textColor="@color/black"
-            android:text="  Name"/>
+            android:text="  Name"
+            android:fontFamily="@font/hanna"/>
 
         <TextView
             android:id="@+id/username"
@@ -89,7 +92,8 @@
             android:layout_marginTop="20dp"
             android:layout_toRightOf="@+id/nameLabel"
             android:textColor="@color/black"
-            android:paddingLeft="40dp" />
+            android:paddingLeft="40dp"
+            android:fontFamily="@font/hanna"/>
 
     </RelativeLayout>
 
@@ -112,7 +116,8 @@
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
             android:textColor="@color/black"
-            android:text="  Email"/>
+            android:text="  Email"
+            android:fontFamily="@font/hanna"/>
 
         <TextView
             android:id="@+id/useremail"
@@ -121,7 +126,8 @@
             android:layout_marginTop="20dp"
             android:layout_toRightOf="@+id/emailLabel"
             android:textColor="@color/black"
-            android:paddingLeft="40dp" />
+            android:paddingLeft="40dp"
+            android:fontFamily="@font/hanna"/>
 
 
 
@@ -145,7 +151,8 @@
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
             android:textColor="@color/black"
-            android:text="BirthDay"/>
+            android:text="BirthDay"
+            android:fontFamily="@font/hanna"/>
         <TextView
             android:id="@+id/userbirth"
             android:layout_width="wrap_content"
@@ -153,7 +160,8 @@
             android:layout_marginTop="20dp"
             android:layout_toRightOf="@+id/birthLabel"
             android:textColor="@color/black"
-            android:paddingLeft="40dp" />
+            android:paddingLeft="40dp"
+            android:fontFamily="@font/hanna"/>
 
 
 
@@ -176,7 +184,8 @@
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
             android:textColor="@color/black"
-            android:text="My point"/>
+            android:text="My point"
+            android:fontFamily="@font/hanna"/>
 
         <TextView
             android:id="@+id/userpoint"
@@ -185,7 +194,8 @@
             android:layout_marginTop="20dp"
             android:layout_toRightOf="@+id/pointLabel"
             android:textColor="@color/black"
-            android:paddingLeft="40dp" />
+            android:paddingLeft="40dp"
+            android:fontFamily="@font/hanna"/>
 
 
 
@@ -215,7 +225,8 @@
         android:layout_margin="10px"
         android:text="My transaction List"
         app:backgroundTint = "@null"
-        android:background="@drawable/button_design"/>
+        android:background="@drawable/button_design"
+        android:fontFamily="@font/hanna"/>
     <Button
         android:id="@+id/btn_logout"
         android:layout_width="100dp"
@@ -223,7 +234,8 @@
         android:layout_margin="10px"
         android:layout_toRightOf="@+id/trans_list"
         android:text="Logout"
-        android:background="@drawable/button_design"/>
+        android:background="@drawable/button_design"
+        android:fontFamily="@font/hanna"/>
 
 </RelativeLayout>
 
