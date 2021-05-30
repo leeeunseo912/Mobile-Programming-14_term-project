@@ -40,8 +40,9 @@
             android:layout_gravity="center"
             android:padding="50dp"
             android:layout_centerHorizontal="true"
-            android:scaleType="fitCenter"/>
-            //android:src="@drawable/default_user_image"
+            android:scaleType="fitCenter"
+            android:src="@drawable/default_user_image"/>
+
 
     </RelativeLayout>
 

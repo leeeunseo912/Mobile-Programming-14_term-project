@@ -1,13 +1,13 @@
 package gachon.example.honsaldulsal;
 
 public class Complete {
-    int cnum;
+    int complete;
 
-    public int getCnum() {
-        return cnum;
+    public int getComplete() {
+        return complete;
     }
 
-    public void setCnum(int cnum) {
-        this.cnum = cnum;
+    public void setComplete(int complete) {
+        this.complete = complete;
     }
 }

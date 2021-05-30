@@ -38,7 +38,9 @@ public class ChatActivity extends AppCompatActivity {
     String id = "";
     String productKey = "";
     int cnum;
-
+    int tnum;
+    int in;
+    int count=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +57,7 @@ public class ChatActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference().child("Product").child(productKey).child("chat");
         DatabaseReference mycRef = database.getReference().child("Product").child(productKey);
+        DatabaseReference dRef = database.getReference().child("Product").child(productKey);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String email = user != null ? user.getEmail() : null;
         email = email.substring(0, email.indexOf("@"));
@@ -63,6 +66,7 @@ public class ChatActivity extends AppCompatActivity {
 
         final ChatAdapter adapter = new ChatAdapter(getApplicationContext(), R.layout.talklist, list, id);
         ((ListView) findViewById(R.id.listView)).setAdapter(adapter);
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,10 +92,23 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
-        complete.setOnClickListener(new View.OnClickListener() {
+
+
+        myRef.child("com").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                mycRef.child("complete").setValue(++cnum);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Par p = snapshot.getValue(Par.class);
+                    String gid = p.getId();
+                    if (id.equals(gid)) {
+                        in = 1; //있으면 1
+                        complete.setEnabled(false);
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
             }
         });
 
@@ -100,11 +117,38 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Complete com = snapshot.getValue(Complete.class);
-                cnum = com.getCnum();
+                Product pd = snapshot.getValue(Product.class);
+                try{
+                cnum = com.getComplete();
+                tnum = pd.getPeopleNum();
+
+                    if(cnum == tnum){
+                        if(count==0) {
+                            Intent intent = new Intent();
+                            intent.putExtra("deleteProductKey", productKey); // productKey 전달
+                            setResult(RESULT_OK, intent);
+                            finish();
+                            count++;
+                        }
+                    }
+                }catch (NullPointerException e){
+                    Log.e("Null","null");
+                }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        complete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(in !=1) {
+                    mycRef.child("complete").setValue(++cnum);
+                    myRef.child("com").push().child("id").setValue(id);
+                }
 
             }
         });

@@ -1,5 +1,6 @@
 package gachon.example.honsaldulsal;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -52,6 +53,7 @@ public class  ProductAdapter extends RecyclerView.Adapter<ProductAdapter.CustomV
                 intent.putExtra("productKey",arrayList.get(position).getProductKey());
                 view.getContext().startActivity(intent);
                 System.out.println("Check "+ arrayList.get(position).getProductKey());
+
             }
         });
     }
@@ -60,6 +62,8 @@ public class  ProductAdapter extends RecyclerView.Adapter<ProductAdapter.CustomV
     public int getItemCount() {
         return (arrayList  != null ?arrayList.size() : 0);
     }
+
+
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {
 

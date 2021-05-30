@@ -3,6 +3,7 @@ package gachon.example.honsaldulsal;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,10 +42,11 @@ public class Product_info extends AppCompatActivity {
     String price;
     String quantity;
     String productKey;
-    int cur;
-    int tnum;
+    int cur=0;
+    int tnum=0;
     String id;
-    int in;
+    int in=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,25 +84,7 @@ public class Product_info extends AppCompatActivity {
         email = email.substring(0, email.indexOf("@"));
         id = email;
 
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Product pd = snapshot.getValue(Product.class);
-                cur = pd.getCurrentNum();
-                tnum = pd.getPeopleNum();
 
-                people_tv.setText(cur + "명 / " + tnum + "명");
-                if (cur == tnum) {
-                    chat.setText("만원");
-                    chat.setEnabled(false);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
         chat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,11 +92,11 @@ public class Product_info extends AppCompatActivity {
                 Intent chatIntent = new Intent(getApplicationContext(), ChatActivity.class);
                 chatIntent.putExtra("productKey", productKey);
                 if(in != 1){
-                myRef.child("currentNum").setValue(++cur);
-                myRef.child("par").push().child("id").setValue(id);
+                    myRef.child("currentNum").setValue(++cur);
+                    myRef.child("par").push().child("id").setValue(id);
                 }
 
-                startActivity(chatIntent);
+                startActivityForResult(chatIntent,100);
             }
         });
 
@@ -124,9 +108,7 @@ public class Product_info extends AppCompatActivity {
                     Par p = snapshot.getValue(Par.class);
                     String gid = p.getId();
                     if (id.equals(gid)) {
-                        in = 1;
-                    } else {
-                        in = 0;
+                        in = 1; //있으면 1
                     }
                 }
             }
@@ -136,7 +118,47 @@ public class Product_info extends AppCompatActivity {
         });
 
 
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
 
+                Product pd = datasnapshot.getValue(Product.class);
+                try {
+                    cur = pd.getCurrentNum();
+                    tnum = pd.getPeopleNum();
+                    if (cur == tnum && in == 0) {
+                        chat.setText("만원");
+                        chat.setEnabled(false);
+                    }
+                    people_tv.setText(cur + "명 / " + tnum + "명");
+                }
+                catch (NullPointerException e){
+                    Log.e("null","null");
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference().child("Product");
+
+        Log.e("딜리트",Activity.RESULT_OK+" ");
+        if(requestCode ==100){
+            if (resultCode != Activity.RESULT_OK) {
+                return;
+            }
+            String deleteProductKey = data.getExtras().getString("deleteProductKey");
+            finish();
+        }
 
     }
 }

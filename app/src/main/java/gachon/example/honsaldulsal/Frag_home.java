@@ -1,5 +1,6 @@
 package gachon.example.honsaldulsal;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,39 +31,11 @@ public class Frag_home extends Fragment {
     private ArrayList<Product> arrayList;
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
-
+    int cnum, tnum;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v=inflater.inflate(R.layout.activity_frag_home,container,false);
-
-//        Button button = (Button)v.findViewById(R.id.btn_enlarge);
-//        button.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                MainActivity activity = (MainActivity) getActivity();
-//                activity.onFragmentChanged(0);
-//            }
-//        });
-//        Frag_item.java
-//        public class Frag_item extends Fragment{
-//            @Nullable
-//            @Override
-//            public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
-//                ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.activity_frag_item, container, false);
-//
-//                Button button = (Button)rootView.findViewById(R.id.btn_exit);
-//                button.setOnClickListener(new View.OnClickListener(){
-//                    @Override
-//                    public void onClick(View v){
-//                        MainActivity activity = (MainActivity)getActivity();
-//                        activity.onFragmentChanged(1);
-//                    }
-//                });
-//
-//                return rootView;
-//            }
-//        }
 
         recyclerView = (RecyclerView)v.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -78,10 +51,19 @@ public class Frag_home extends Fragment {
                 String productKey;
                 arrayList.clear();
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    Complete com = snapshot.getValue(Complete.class);
+                    cnum = com.getComplete();
                     Product product = snapshot.getValue(Product.class);
+                    tnum = product.getPeopleNum();
                     productKey = snapshot.getKey();
-                    product.setProductKey(productKey); // 디비에서 키를
-                    arrayList.add(product);
+                    if(cnum == tnum){
+                        databaseReference.child(productKey).removeValue();
+                    }
+                    else {
+
+                        product.setProductKey(productKey); // 디비에서 키를
+                        arrayList.add(product);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -99,4 +81,6 @@ public class Frag_home extends Fragment {
         return v;
 
     }
+
+
 }
