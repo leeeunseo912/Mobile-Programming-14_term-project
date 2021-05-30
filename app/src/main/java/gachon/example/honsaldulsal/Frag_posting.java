@@ -92,8 +92,8 @@ public class Frag_posting extends Fragment {
             @Override
             public void onClick(View view){
                 double people = Integer.parseInt(Ipeople.getText().toString());
-                database = FirebaseDatabase.getInstance();
-                myRef = database.getReference();
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference();
                 HashMap<String, Object> productValue = new HashMap<>();
                 productValue.put("currentNum", 1);
                 productValue.put("etc", IEtc.getText().toString());
@@ -101,10 +101,9 @@ public class Frag_posting extends Fragment {
                 productValue.put("item", Iname.getText().toString());
                 productValue.put("location", Ilocation.getText().toString());
                 productValue.put("peopleNum", people);
-                productValue.put("price", getPrice(Iprice.getText().toString()));
+                productValue.put("price", getPrice(Iname.getText().toString()));
                 productValue.put("quantity", Iquantity.getText().toString());
                 productValue.put("host", finalEmail);
-                productValue.put("caht", "");
                 productValue.put("par", finalEmail);
                 myRef.child(product).child(finalEmail + Iname.getText().toString()).setValue(productValue);
                 myRef.child(product).child(finalEmail + Iname.getText().toString()).child("complete").setValue(0);
