@@ -61,6 +61,7 @@ public class Frag_posting extends Fragment {
 
         EditText Iname = v.findViewById(R.id.postItem);
         EditText Iquantity = v.findViewById(R.id.postQuantity);
+        EditText Ilocation = v.findViewById(R.id.postLocation);
         EditText Iprice = v.findViewById(R.id.postPrice);
         EditText Ipeople = v.findViewById(R.id.postPeople);
         EditText IEtc = v.findViewById(R.id.postEtc);
@@ -98,10 +99,12 @@ public class Frag_posting extends Fragment {
                 productValue.put("etc", IEtc.getText().toString());
                 productValue.put("image", "aaa");
                 productValue.put("item", Iname.getText().toString());
-                productValue.put("location", loc[0]);
+                productValue.put("location", Ilocation.getText().toString());
                 productValue.put("peopleNum", people);
                 productValue.put("price", getPrice(Iprice.getText().toString()));
                 productValue.put("quantity", Iquantity.getText().toString());
+                productValue.put("host", finalEmail);
+                productValue.put("caht", "");
                 productValue.put("par", finalEmail);
                 myRef.child(product).child(finalEmail + Iname.getText().toString()).setValue(productValue);
                 myRef.child(product).child(finalEmail + Iname.getText().toString()).child("complete").setValue(0);
@@ -115,16 +118,22 @@ public class Frag_posting extends Fragment {
     }
     public String getPrice(String name) {
         String price = "";
-        if(name.equalsIgnoreCase("water")){
-            price = "500";
-        }else if(name.equalsIgnoreCase("handcream")){
-            price = "800";
-        }else if(name.equalsIgnoreCase("curry")){
-            price = "1790";
-        }else if(name.equalsIgnoreCase("Sesame oil")){
-            price =  "6000";
-        }else if(name.equalsIgnoreCase("Oyster Sauce")){
-            price = "3000";
+        if(name.equalsIgnoreCase("삼다수")){
+            price = "5880";
+        }else if(name.equalsIgnoreCase("삼분카레")){
+            price = "17900";
+        }else if(name.equalsIgnoreCase("김")){
+            price = "11000";
+        }else if(name.equalsIgnoreCase("휴지")){
+            price =  "10800";
+        }else if(name.equalsIgnoreCase("다우니")){
+            price = "15390";
+        }else if(name.equalsIgnoreCase("세제")){
+            price = "17580";
+        }else if(name.equalsIgnoreCase("면도날")){
+            price = "27180";
+        }else if(name.equalsIgnoreCase("마스크")){
+            price = "12900";
         }else
             price = name;
         return price;
