@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,27 +40,28 @@ public class Frag_posting extends Fragment {
     private static String product = "Product";
     FirebaseDatabase database;
     DatabaseReference myRef;
+    int REQUEST_IMAGE_CODE=1001;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v=inflater.inflate(R.layout.activity_frag_posting,container,false);
-// 이미지 선택
-//        imageView = v.findViewById(R.id.postImage);
-//        imageView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent();
-//                intent.setType("image/*");
-//                intent.setAction(Intent.ACTION_GET_CONTENT);
-//                startActivityForResult(intent, 0);
-//            }
-//
-//        });
+//      이미지 선택
+        imageView = v.findViewById(R.id.postImage);
+        imageView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+                Intent intent = new Intent(Intent.ACTION_PICK,
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(intent,REQUEST_IMAGE_CODE);
+            }
+        });
 
 
 
         EditText Iname = v.findViewById(R.id.postItem);
         EditText Iquantity = v.findViewById(R.id.postQuantity);
+        EditText Ilocation = v.findViewById(R.id.postLocation);
         EditText Iprice = v.findViewById(R.id.postPrice);
         EditText Ipeople = v.findViewById(R.id.postPeople);
         EditText IEtc = v.findViewById(R.id.postEtc);
@@ -97,10 +99,12 @@ public class Frag_posting extends Fragment {
                 productValue.put("etc", IEtc.getText().toString());
                 productValue.put("image", "aaa");
                 productValue.put("item", Iname.getText().toString());
-                productValue.put("location", loc[0]);
+                productValue.put("location", Ilocation.getText().toString());
                 productValue.put("peopleNum", people);
                 productValue.put("price", getPrice(Iprice.getText().toString()));
                 productValue.put("quantity", Iquantity.getText().toString());
+                productValue.put("host", finalEmail);
+                productValue.put("caht", "");
                 productValue.put("par", finalEmail);
                 myRef.child(product).child(finalEmail + Iname.getText().toString()).setValue(productValue);
                 myRef.child(product).child(finalEmail + Iname.getText().toString()).child("complete").setValue(0);
