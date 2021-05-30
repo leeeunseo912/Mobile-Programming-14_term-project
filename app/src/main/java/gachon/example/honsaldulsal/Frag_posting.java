@@ -84,7 +84,7 @@ public class Frag_posting extends Fragment {
                 productValue.put("item", Iname.getText().toString());
                 productValue.put("location", Ilocation.getText().toString());
                 productValue.put("peopleNum", people);
-                productValue.put("price", Iprice.getText().toString());
+                productValue.put("price", getPrice(Iprice.getText().toString()));
                 productValue.put("quantity", Iquantity.getText().toString());
                 productValue.put("chat", "");
                 productValue.put("par", finalEmail);
@@ -110,7 +110,8 @@ public class Frag_posting extends Fragment {
             price =  "6000";
         }else if(name.equalsIgnoreCase("Oyster Sauce")){
             price = "3000";
-        }
+        }else
+            price = name;
         return price;
     }
 }
