@@ -99,11 +99,11 @@ public class Product_info extends AppCompatActivity {
             image_tv.setImageResource(R.drawable.curry);
         else if (item.contains("김") == true)
             image_tv.setImageResource(R.drawable.kim);
-        else if (item.contains("휴지"))
+        else if (item.contains("휴지") == true)
             image_tv.setImageResource(R.drawable.tissue);
-        else if (item.contains("다우니"))
+        else if (item.contains("다우니") == true)
             image_tv.setImageResource(R.drawable.downy);
-        else if (item.contains("세제"))
+        else if (item.contains("세제") == true)
             image_tv.setImageResource(R.drawable.beet);
         else if (item.contains("면도날") == true)
             image_tv.setImageResource(R.drawable.gillette);
