@@ -14,27 +14,27 @@ https://www.youtube.com/watch?v=h6dhwzRum0Q
 6. Job Assignment
 
 ***
-1. Introduce Member
+#### 1. Introduce Member
 * 심우석 소프트웨어학과 - 201636417, Email : qkqh8639@gmail.com, Github : dntjr41
 * 이은서 글로벌경영학과 - 201732569, Email : wond2rful@gmail.com, Github : wond2rful@gmail.com
 * 이승규 소프트웨어학과 - 201835493, Email : syj1351@naver.com, Github : syj1351@naver.com
 * 최형인 소프트웨어학과 - 201735894, Email : llodhigh@gmail.com, Github : llodhigh@gmail.com
 
 ***
-2. Brief Description
+#### 2. Brief Description
 <img width="700" alt="1" src="https://user-images.githubusercontent.com/67234937/121792601-3421e600-cc32-11eb-9e13-9ff66f7b192b.PNG">
 <img width="700" alt="2" src="https://user-images.githubusercontent.com/67234937/121792611-4ac83d00-cc32-11eb-976d-cac47f670302.PNG">
 <img width="700" alt="3" src="https://user-images.githubusercontent.com/67234937/121792615-50be1e00-cc32-11eb-88e4-4af9d9704744.PNG">
 
 ***
-3. Key Features
+#### 3. Key Features
 <img width="700" alt="4" src="https://user-images.githubusercontent.com/67234937/121792645-adb9d400-cc32-11eb-8b5a-2f914c9a73f3.PNG">
 <img width="700" alt="5" src="https://user-images.githubusercontent.com/67234937/121792646-b1e5f180-cc32-11eb-8590-b80699fad27f.PNG">
 <img width="700" alt="6" src="https://user-images.githubusercontent.com/67234937/121792648-b6120f00-cc32-11eb-96c3-a6e6fac8f2da.PNG">
 <img width="700" alt="7" src="https://user-images.githubusercontent.com/67234937/121792650-ba3e2c80-cc32-11eb-8c59-125a7b18644e.PNG">
 
 ***
-4. Contents
+#### 4. Contents
 * Login & Register
 <img width="700" alt="9" src="https://user-images.githubusercontent.com/67234937/121792711-5b2ce780-cc33-11eb-8fa5-5eccc8f14dcc.PNG">  
 <img width="200" alt="9" src="https://user-images.githubusercontent.com/67234937/121792686-2c167600-cc33-11eb-976d-50c3baddf80f.gif">  
@@ -65,7 +65,7 @@ https://www.youtube.com/watch?v=h6dhwzRum0Q
 
 
 ***
-5. Implementation
+#### 5. Implementation
 * Sign Up
 <img width="700" alt="22" src="https://user-images.githubusercontent.com/67234937/121792982-fd4dcf00-cc35-11eb-850c-9d0ebf105483.PNG">
 <img width="700" alt="23" src="https://user-images.githubusercontent.com/67234937/121792985-0179ec80-cc36-11eb-862b-8a2adc5214d2.PNG">
@@ -99,6 +99,6 @@ https://www.youtube.com/watch?v=h6dhwzRum0Q
 <img width="700" alt="37" src="https://user-images.githubusercontent.com/67234937/121793104-ccba6500-cc36-11eb-9114-ec31c4c7ada0.PNG">
 
 ***
-6. Job Assignments
+#### 6. Job Assignments
 <img width="700" alt="38" src="https://user-images.githubusercontent.com/67234937/121793150-2d49a200-cc37-11eb-95c0-cc4c44657058.PNG">
 
