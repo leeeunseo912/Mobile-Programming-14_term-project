@@ -37,20 +37,20 @@ https://www.youtube.com/watch?v=h6dhwzRum0Q
 4. Contents
 * Login & Register
 <img width="700" alt="9" src="https://user-images.githubusercontent.com/67234937/121792711-5b2ce780-cc33-11eb-8fa5-5eccc8f14dcc.PNG">  
-* ![8](https://user-images.githubusercontent.com/67234937/121792686-2c167600-cc33-11eb-976d-50c3baddf80f.gif)
+<img width="200" alt="9" src="https://user-images.githubusercontent.com/67234937/121792686-2c167600-cc33-11eb-976d-50c3baddf80f.gif">  
 
 * Main Home
 <img width="700" alt="10" src="https://user-images.githubusercontent.com/67234937/121792731-70097b00-cc33-11eb-9c4c-4c01bcfec4a5.PNG">
-* ![11 (1)](https://user-images.githubusercontent.com/67234937/121792737-7bf53d00-cc33-11eb-864d-16beeb4d57c6.gif)
+<img width="200" alt="9" src="https://user-images.githubusercontent.com/67234937/121792737-7bf53d00-cc33-11eb-864d-16beeb4d57c6.gif">  
 
 * Set Location
 <img width="700" alt="12" src="https://user-images.githubusercontent.com/67234937/121792763-d5f60280-cc33-11eb-96c2-42f7b6b9e13e.PNG">
-* ![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/67234937/121792867-0b4f2000-cc35-11eb-87e5-e2c2dc1de8a7.gif)
+<img width="200" alt="9" src="https://user-images.githubusercontent.com/67234937/121792867-0b4f2000-cc35-11eb-87e5-e2c2dc1de8a7.gif">  
 
 * Posting
 <img width="700" alt="14" src="https://user-images.githubusercontent.com/67234937/121792795-2a00e700-cc34-11eb-920c-64f125800061.PNG">
 <img width="700" alt="15" src="https://user-images.githubusercontent.com/67234937/121792800-3be28a00-cc34-11eb-9529-8cef5c70430d.PNG">
-* ![16](https://user-images.githubusercontent.com/67234937/121792801-413fd480-cc34-11eb-88a5-8ef9926e7a05.gif)
+<img width="200" alt="9" src="https://user-images.githubusercontent.com/67234937/121792801-413fd480-cc34-11eb-88a5-8ef9926e7a05.gif"> 
 
 * Product
 <img width="700" alt="17" src="https://user-images.githubusercontent.com/67234937/121792829-8ebc4180-cc34-11eb-9857-83ead37fd0e0.PNG">
@@ -61,7 +61,8 @@ https://www.youtube.com/watch?v=h6dhwzRum0Q
 
 * My Page
 <img width="700" alt="20" src="https://user-images.githubusercontent.com/67234937/121792844-bf03e000-cc34-11eb-83ee-72acecfb5f99.PNG">
-* ![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/67234937/121793124-fecbc700-cc36-11eb-92a0-52b3370dc968.gif)
+<img width="200" alt="9" src="https://user-images.githubusercontent.com/67234937/121793124-fecbc700-cc36-11eb-92a0-52b3370dc968.gif"> 
+
 
 ***
 5. Implementation
